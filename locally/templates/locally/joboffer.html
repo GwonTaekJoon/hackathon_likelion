@@ -1,33 +1,156 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    
 
-
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!-- 합쳐지고 최소화된 최신 CSS -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+    
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+
+
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9fnpemqt72"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <link rel="stylesheet" href="{% static 'styles_job.css' %}">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<link rel="stylesheet" href="{% static 'styles_joboffer.css' %}">
+    
+<!-- 여기까지 중복 없ㅇ므!! -->
+<style>
 
+ 
+    /* .wrapper {
+      margin: 5em auto;
+      max-width: 1100px;
+      background-color: #fff;
+    } */
+    
+  
+    
+    /* #divPaging {
+          clear:both; 
+        margin:0 auto; 
+        width:220px; 
+        height:50px;
+} */
 
+/* .myButton {
+	background-color:#337ab7;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:3px 9px;
+	text-decoration:none;
+} */
+/* .myButton:hover {
+	background-color:#085492;
+  position:relative;
+	top:1px;
+} */
+/* #divPaging > a {
+    background-color:#3379b7;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:3px 9px;
+	text-decoration:none;
+} */
+/* #divPaging > a:hover{
+    background-color:#085492;
+}	 */
+/* *{
+	margin:0;
+	padding:0;
+	
+	box-sizing: border-box;
+}
+#menu{
+	width:90%;
+	margin:25px auto;
+}
+#menu ul{
+	list-style:none;
+}
+#menu li{
+	display:block;
+	float:left;
+    
+}
+#menu li a{
+	background:#ffffff url(images/menu_bg.gif) repeat-x;
+	border:1px solid #337ab7;
+	margin:0 1px;
+	padding:15px 15px 15px 15px;
+	display:block;
+	float:left;
+	color:rgb(0, 0, 0);
+	text-transform:uppercase;
+	text-decoration:none;
+	font-size:15px;
+	font-weight:bold;
+	height: 190px;
+    width:500px;
+    text-align: left;
+    box-shadow: 0 0 3px 0 rgb(84, 97, 136);
+}
+#menu li a span{
+	color:rgb(0, 0, 0);
+	font-size:17px;
+	text-transform:lowercase;
+	font-weight:normal;
+}
+#menu li a:hover{
+	background:#337ab7 url(images/menu_hover.gif) repeat-x;
+	border:2px solid #a0a0a0;
+	text-decoration:none;
+}
+#menu li a:hover span{
+	color:#ffffff;
+}
+#menu li a:hover{
+    color:#ffffff;
+} */
+</style>
+ 
+    
 </head>
 <body>
     <div class="nav1">
-        <p class="title" >locally</p> <p class="title">서울</p>
-        <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="register"  class="title2"><p>회원가입</p></a> 
+        <a href="{% url 'choice'%}"><p class="title" >locally</p></a> <a href="{% url 'site'%}"><p class="title">서울</p></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}" class="title2"><p>로그아웃</p></a> <p class="title2">{{user.username}}님이 로그인중</p>
+        {% else %}
+            <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="{%url 'register'%}"  class="title2"><p>회원가입</p></a>
+        {% endif %}
     </div>
     <div class="nav2">
             <a href="{% url 'schedule'%}" class="title3"> 일정</a>
@@ -37,50 +160,117 @@
             <a href="{% url 'guide'%}" class="title3">이용안내</a>
     </div>
     <div class="wrap">
-            <a href="#" class="button">10대</a>
-            <a href="#" class="button">20대</a>
-            <a href="#" class="button">30대</a>
-            <a href="#" class="button">40대</a>
-            <a href="#" class="button">50대</a>
+            <a href="{%  url 'ten' %}" class="button">10대</a>
+            <a href="{% url 'twenty' %}" class="button">20대</a>
+            <a href="{% url 'thirty' %}" class="button">30대</a>
+            <a href="{% url 'forty' %}" class="button">40대</a>
+            <a href="{% url 'fifty' %}" class="button">50대</a>
     </div>
-    
-    <div id="lnb">
-  <h1>구인구직</h1>
-  <ul>
-    <li><a href="#none">구인</a>
-      <ul>
-        <li><a href="#none">일자리 모집하기</a>
-        </li>
-        <li><a href="#none">- 2Depth</a>
-          <ul>
-            <li><a href="#none">- 3Depth</a></li>
-            <li><a href="#none">- 3Depth</a></li>
-          </ul>
-        </li>
-        <li><a href="#none">- 2Depth</a></li>
-        <li><a href="#none">- 2Depth</a></li>
-      </ul>
-    </li>
-    
-    <li><a href="#none">구직</a>
-      <ul>
-        <li><a href="#none">연령별</a>
-          <ul>
-            <li><a href="#none">60대 이상</a></li>
-              <li><a href="#none">40-50대</a></li>
-              <li><a href="#none">20-30대</a></li>
-          </ul>
-        </li>
-        <li><a href="#none">성별</a>
-          <ul>
-            <li><a href="#none">여성</a></li>
-            <li><a href="#none">남성</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
+    <div class="col-md-2">
+        
+        <div id="lnb"><h1>구인구직</h1>
+        <ul>
+            <li><a href="#none">인재 정보</a>
+                <ul>
+                    <li><a href="{% url 'offer' %}">일자리 지원하기</a>
+                </ul>
+            </li>
+            <li><a href="#none">일자리 정보</a>
+                <ul>
+                    <li><a href="{% url 'jobapply' %}">일자리 공고</a></li>
+                    <li><a href="{% url 'jobapplywrite' %}">일자리 모집하기</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
 </div>
+    </div>
+    <div class="col-md-10">
+        <div id="mainWrapper">
+            <br><br>
+            <blockquote>
+                <p>인재정보</p>
+                <h5 class="text-right">
+                    🏠Home
+                    <span>&gt;</span>취업
+                    <span>&gt;</span>인재정보
+                    </h5>
+            </blockquote>
+         <form class="form-inline"  method="get">
+            <li id='liSearchOption'>
+                <div>
+                    <select name="search_filter" height="30px" class="selectpicker form-control">
+                        <option>title</option>
+                        <option>작성자</option>
+                    </select>
+                    <input type="text" name="q" class="form-control" required="true" height="28px" id='txtKeyWord' />
+                    <button type="submit" class="myButton btn btn-secondary" >검색</button> 
+                    <!-- padding="1px 10px" 검색부분에 -->
+                </div>
+            </li>
+         </form>
+            <br>
+            
+             {% if user.is_authenticated %}
+            	<a float="right" href="{% url 'jobofferwrite' %}" class="myButton">작성하기</a><br>
+            {% else %}
+            <p>
+                글작성은 로그인 후에 가능합니다.
+            </p>
+            {% endif %}
+            <br>
+     
+	<div class="wrapper">
+		<hr>
+        {% for joboffer in joboffers %}
+		<div class="card-deck" width="110px" margin="1px">
+			<div id="menu">
+				 
+				<ul>
+					<li>
+						<a href="{% url 'jobofferclick' joboffer_id=joboffer.id %}">
+						<table border=0>
+							<td width="137px">
+								<img src="https://image.flaticon.com/icons/svg/149/149071.svg" margin="10px" width="100px" height="90px">
+							</td>
+							<td>
+								<o class="h5">{{ joboffer.name }}({{ joboffer.gender }}, {{ joboffer.age }})</o>
+								<h3>{{ joboffer.title }}</h3>
+								<f class="h4">경력 {{ joboffer.career }}</f>
+                                <f class="h4">작성자 {{ joboffer.joboffer_user }}</f>
+							</td>
+						</table><br>
+						<threee class="h3">{{ joboffer.objective }}</threee>
+						</a>
+					</li>
+				</ul>
+			
+			</div>
+		</div>
+        	{% endfor %}
+        <br>
+	</div>
+	<div id="divPaging">
+		{%if posts.has_previous%}
+        
+		<a href="?page=1">◀◀</a>
+		<a href="?page={{posts.previous_page_number}}">◀</a>
+		{%endif %}
+		<span>{{posts.number}}</span>
+		<span>of</span>
+		<span>{{posts.paginator.num_pages}}</span> 
+		{%if posts.has_next%}
+		<a href="?page={{posts.next_page_number}}">▶</a>
+		<a href="?page={{posts.paginator.num_pages}}">▶▶</a>
+		{%endif%}
+	</div>
+	<div style="clear: both;"></div>
+            
+            
+            
+        </div>
+    </div>
     <script type="text/javascript">
         (function($){
   

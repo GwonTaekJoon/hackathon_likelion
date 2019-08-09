@@ -11,7 +11,7 @@ def login(request):
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('home')
+            return redirect('site')
         else:
             return render(request, 'login.html', {'error': 'username or password is incorrect.'})
     else:
@@ -40,10 +40,8 @@ def register(request):
 
                                       
 def logout(request):
-    if request.method == 'POST':
-        auth.logout(request)
-        return redirect('site')
-    return render(request,'signup.html')
+    auth.logout(request)
+    return redirect('site')
 
 
 

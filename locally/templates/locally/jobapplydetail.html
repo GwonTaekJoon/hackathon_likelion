@@ -1,0 +1,102 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
+    
+<style>
+    .paydetails{
+        font-size:15px;
+    }
+    .payimg{
+        width:40px;
+    }
+    .myButton {
+	    background-color:#3379b7;
+	    display:inline-block;
+	    cursor:pointer;
+	    color:#ffffff;
+	    font-family:Arial;
+	    font-size:13px;
+	    padding:12px 22px;
+	    text-decoration:none;
+        float: right;
+        margin:10px;
+    }
+    .myButton:hover {
+    	background-color:#185f9e;
+        color:#ffffff;
+    }
+    .myButton:active {
+    	position:relative;
+        top:1px;
+    }
+    p {
+        font-size:30px; 
+        color:#337ab7;
+    }
+</style>
+</head>
+<body>
+    <br><br><br>
+    <div class="container">
+            <blockquote>
+                <p>채용공고</p>
+                <i class="fa fa-search"></i>
+                <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                <h5 class="text-right">
+                    🏠Home
+                    <span>&gt;</span>취업
+                    <span>&gt;</span>채용공고
+                </h5>
+            </blockquote>
+            <br><hr><br>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h1>{{ apply.title }}</h1><br>
+                    <h5>
+                        <span></span>작성자:
+                        <span>&nbsp;</span> 작성날짜: {{ apply.pub_date }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                        <h2>
+                        <img class ="payimg" src="https://image.flaticon.com/icons/svg/1662/1662057.svg"></img>{{apply.pay}}  </h2>  
+                
+                    </div>
+                        <div class="col-md-9"><h2>
+                    <img class="payimg" src="http://cdn.onlinewebfonts.com/svg/img_1149.png"></img>{{apply.day}}
+                </h2>
+                </div>
+        </div>
+                <div class="row">
+                        <div class="col-md-3">
+                <h2>
+                    <img class="payimg" src="https://previews.123rf.com/images/theerakit/theerakit1610/theerakit161000036/67643544-clock-icon-in-trendy-flat-style-time-symbol-for-your-web-design-logo-ui.jpg"></img>{{apply.time}}
+                </h2>
+                </div>
+                        <div class="col-md-9">
+                <h2>
+                    <img class="payimg" src="https://image.flaticon.com/icons/svg/149/149226.svg"></img>
+    {{apply.locate}}
+                </h2>
+        </div>
+    <br>
+    <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+                        <h2> {{ apply.body }}</h2>
+                    </div>
+        
+    </div>
+    </div>   
+                    </div>
+                         
+                </div>
+            </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9fnpemqt72"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="{% static 'styles_job.css' %}">
+
+
+</head>
+<body>
+    <div class="nav1">
+        <a href="{% url 'choice'%}"><p class="title" >locally</p></a> <a href="{% url 'site'%}"><p class="title">서울</p></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}" class="title2"><p>로그아웃</p></a> <p class="title2">{{user.username}}님이 로그인중</p>
+        {% else %}
+            <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="{%url 'register'%}"  class="title2"><p>회원가입</p></a>
+        {% endif %}
+    </div>
+    <div class="nav2">
+            <a href="{% url 'schedule'%}" class="title3"> 일정</a>
+            <a href="{% url 'wish'%}" class="title3">바란다</a>
+            <a href="{% url 'market'%}" class="title3">장터</a>
+            <a href="{% url 'job'%}" class="title3">취업</a>
+            <a href="{% url 'guide'%}" class="title3">이용안내</a>
+    </div>
+   <div class="wrap">
+            <a href="{%  url 'ten' %}" class="button">10대</a>
+            <a href="{% url 'twenty' %}" class="button">20대</a>
+            <a href="{% url 'thirty' %}" class="button">30대</a>
+            <a href="{% url 'forty' %}" class="button">40대</a>
+            <a href="{% url 'fifty' %}" class="button">50대</a>
+    </div>
+    
+    <div id="lnb">
+  <h1>구인구직</h1>
+  <ul>
+    <li><a href="#none">구인</a>
+      <ul>
+        <li><a href="{% url 'offer' %}">일자리 모집하기</a>
+        </li>
+        <li><a href="#none">- 2Depth</a>
+          <ul>
+            <li><a href="#none">- 3Depth</a></li>
+            <li><a href="#none">- 3Depth</a></li>
+          </ul>
+        </li>
+        <li><a href="#none">- 2Depth</a></li>
+        <li><a href="#none">- 2Depth</a></li>
+      </ul>
+    </li>
+    
+    <li><a href="#none">구직</a>
+      <ul>
+        <li><a href="#none">연령별</a>
+          <ul>
+            <li><a href="{% url 'apply60' %}">60대 이상</a></li>
+              <li><a href="{% url 'apply40' %}">40-50대</a></li>
+              <li><a href="{% url 'apply20' %}">20-30대</a></li>
+          </ul>
+        </li>
+        <li><a href="#none">성별</a>
+          <ul>
+            <li><a href="{% url 'apply_female' %}">여성</a></li>
+            <li><a href="{% url 'apply_male' %}">남성</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    <h1>
+    남성구직
+</h1>
+    <script type="text/javascript">
+        (function($){
+  
+  var lnbUI = {
+    click : function (target, speed) {
+      var _self = this,
+          $target = $(target);
+      _self.speed = speed || 300;
+      
+      $target.each(function(){
+        if(findChildren($(this))) {
+          return;
+        }
+        $(this).addClass('noDepth');
+      });
+      
+      function findChildren(obj) {
+        return obj.find('> ul').length > 0;
+      }
+      
+      $target.on('click','a', function(e){
+          e.stopPropagation();
+          var $this = $(this),
+              $depthTarget = $this.next(),
+              $siblings = $this.parent().siblings();
+        
+        $this.parent('li').find('ul li').removeClass('on');
+        $siblings.removeClass('on');
+        $siblings.find('ul').slideUp(250);
+        
+        if($depthTarget.css('display') == 'none') {
+          _self.activeOn($this);
+          $depthTarget.slideDown(_self.speed);
+        } else {
+          $depthTarget.slideUp(_self.speed);
+          _self.activeOff($this);
+        }
+        
+      })
+      
+    },
+    activeOff : function($target) {
+      $target.parent().removeClass('on');
+    },
+    activeOn : function($target) {
+      $target.parent().addClass('on');
+    }
+  };
+  
+  
+  // Call lnbUI
+  $(function(){
+    lnbUI.click('#lnb li', 300)
+  });
+  
+  
+}(jQuery));
+    </script>
+</body>
+</html>

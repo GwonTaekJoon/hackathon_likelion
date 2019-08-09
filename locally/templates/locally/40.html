@@ -1,42 +1,408 @@
+<!DOCTYPE html>
 {% extends './base.html' %}
 
 {% block contents %}
-{% load static %}
+{% load staticfiles %}
 <html>
-    
 <head>
-
-<link rel="stylesheet" href="{% static 'styles_40.css' %}">
-</head>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">    
+    
+<style type="text/css">
+    
+    
+      @font-face { font-family: 'BMDOHYEON'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff'); font-weight: normal; font-style: normal; }
+   @font-face { font-family: 'SDKukdetopokki'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDKukdetopokki.woff') format('woff'); font-weight: normal; font-style: normal; }
+    
+     .ab{
+        float:left;
+        margin-right:110px;
+    }
+    
+      .cont{
+        float:right;
+    }
+    .my-hr {
+        border: 0;
+        height: 1px;
+        width: 1000px;
+        float:left;
+        background: rgb(0, 0, 0);
+    }
+    p {
+        position: relative;
+        display: inline-block;
+        background: linear-gradient(-90deg, #000000 50%, #000000 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        white-space: nowrap;
+        font-size:30px;
+    }
+    .ab{
+        float:left;
+        margin-right:110px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+    }
+    /* lnb */
+    #lnb {
+      position: relative;
+      width: 200px;
+    }
+    #lnb h1 {
+      height: 40px;
+      text-align: center;
+      color: #fff;font-size: 20px;
+      line-height: 1.8;
+      letter-spacing: -2px; 
+      background: #337ab7;
+    margin-left: 5px;
+    }
+    #lnb > ul > li { 
+      border-bottom: 1px solid #dcdcdc;
+    }
+    #lnb > ul > li > a {
+      display: block;
+      padding: 14px 35px 14px 15px; 
+      color: inherit;
+      font-size: 14px;background:#f5f2ec url(http://cfile26.uf.tistory.com/image/2417E04D570C5C02256897) no-repeat 95% 15px;
+    }
+    #lnb > ul > li a:hover { 
+      text-decoration:none !important; 
+      color: #337ab7; 
+      background-color: #f5f2ec;  
+      width:500px;
+    }
+    .btn {
+      width: 60px; height: 26px;
+      font-size:10px;
+    }
+    body {
+      font-family:'SDKukdetopokki';
+      width: 1500px; 
+      margin: 0px auto;
+    }
+    .nav1{
+        text-align: center;
+        
+    }
+    .nav2 {
+        display: block;
+        text-align:center;
+        font-size: 25px;
+        width:1480px;
+       
+        margin-right: 20px;
+        background-color:#337ab7;
+        padding-top:15px;
+        padding-bottom:15px;
+    }
+    .title{
+        display: inline-block;
+        text-align: center;
+        margin-left : 70px;
+        margin-top: 10px;
+        font-size: 40px;
+    }
+    .title2{
+        display: inline-block;
+        text-align: center;
+        margin-right : 30px;
+        margin-top: 40px;
+        float:right;
+        font-size: 15px;
+    }
+    .title3{
+        color:white;
+        margin-left:20px;
+        margin-right : 40px;
+        margin-top: 0px;
+        margin-bottom :0px;
+    }
+    .title3:hover{
+        color:white;
+    }
+    a {
+    -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    display: inline-block;
+    margin: 20px auto;
+    max-width: 180px;
+    text-decoration: none;
+    border-radius: 4px;
+    }
+    .button{
+      padding: 20px 30px;
+    }
+    a.button {
+      color: rgba(30, 22, 54, 0.6);
+      box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+      margin-right:30px;
+    }
+    .wrap{
+     text-align: center;
+        font-size:15px;
+    }
+    a.button:hover {
+      color: rgba(255, 255, 255, 0.85);
+      box-shadow: #337ab7 0 0px 0px 40px inset;
+    }
+    .pills {
+        float:left;
+    }
+    .event{
+      float:left;
+    }
+    
+    .namestyle{
+        color:black !important;
+    }
+    ul, li { 
+        list-style:none;
+        text-align:center;
+        padding:0;
+        margin:0;
+    }
+    #mainWrapper {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    #mainWrapper > ul > li:first-child {
+        text-align: center;
+        font-size:14pt;
+        height:40px;
+        vertical-align:middle;
+        line-height:30px;
+    }
+    #ulTable {
+        margin-top:10px;
+    }
+    #ulTable > li:first-child > ul > li {
+        background-color:#337ab7;
+        font-weight:bold;
+        text-align:center;
+        color:white;
+    }
+    #ulTable > li > ul {
+        clear:both;
+        padding:0px auto;
+        position:relative;
+        min-width:40px;
+    }
+    #ulTable > li > ul > li { 
+        float:left;
+        font-size:10pt;
+        border-bottom:1px solid silver;
+        vertical-align:baseline;
+    }    
+    #ulTable > li > ul > li:first-child               {width:10%;} 
+    #ulTable > li > ul > li:first-child +li           {width:45%;} 
+    #ulTable > li > ul > li:first-child +li+li        {width:20%;} 
+    #ulTable > li > ul > li:first-child +li+li+li     {width:15%;} 
+    #ulTable > li > ul > li:first-child +li+li+li+li  {width:10%;} 
+    #divPaging {
+        clear:both; 
+        margin:0 auto; 
+        width:220px; 
+        height:50px;
+    }
+    #divPaging > div {
+        float:left;
+        width: 30px;
+        margin:0 auto;
+        text-align:center;
+    }
+    #liSearchOption {clear:both; float: right;}
+    #liSearchOption > div {
+        margin:0 auto; 
+        margin-top: 30px; 
+        width:auto; 
+        height:60px; 
+    }
+    .left {
+        text-align : left;
+        height:20px;
+    }
+    .myButton {
+	    background-color:#3379b7;
+	    display:inline-block;
+	    cursor:pointer;
+	    color:#ffffff;
+	    font-family:Arial;
+	    font-size:13px;
+	    padding:3px 9px;
+	    text-decoration:none;
+    }
+    .myButton:hover {
+	    background-color:#085492;
+        position:relative;
+	    top:1px;
+    }
+    #divPaging > a {
+        background-color:#3379b7;
+	    display:inline-block;
+	    cursor:pointer;
+	    color:#ffffff;
+	    font-family:Arial;
+	    font-size:13px;
+	    padding:3px 9px;
+	    text-decoration:none;
+    }
+    #divPaging > a:hover{
+        background-color:#085492;
+    }
+    .warning{
+        color:#337ab7;
+        font-size:20px;
+    }
+ 
+</style>
 </head>
 <body>
-         
+    <div class="nav1">
+        <a href="{% url 'choice'%}"><p class="title" >locally</p></a> <a href="{% url 'site'%}"><p class="title">서울</p></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}" class="title2"><p>로그아웃</p></a> <p class="title2">{{user.username}}님이 로그인중</p>
+        {% else %}
+            <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="{%url 'register'%}"  class="title2"><p>회원가입</p></a>
+        {% endif %}
+    </div>
+     <div class="nav2">
+            <a href="{% url 'schedule'%}" class="title3"> 일정</a>
+            <a href="{% url 'wish'%}" class="title3">바란다</a>
+            <a href="{% url 'market' %}" class="title3">장터</a>
+            <a href="{% url 'job' %}" class="title3">취업</a>
+            <a href="{% url 'guide' %}" class="title3">이용안내</a>
+    </div>
+    <div class="wrap">
+        
+        <a href="{ % static/styles_site.css % }" </a>
+        <a href="{%url 'ten'%}" class="button">10대</a>
+        <a href="{%url 'twenty'%}" class="button">20대</a>
+        <a href="{%url 'thirty'%}" class="button">30대</a>
+        <a href="{%url 'forty'%}" class="button">40대</a>
+        <a href="{%url 'fifty'%}" class="button">50대</a>
+    </div>
 
     
-    <div style="&#10;background-image: url(//static.instiz.net/static/190704_gonight_bg.png);&#10;width: 100%;&#10;height: 50px;&#10;cursor:pointer;&#10;" onclick="location='//www.instiz.net/one.htm';"><div style="&#10;background-repeat: no-repeat;&#10;background-position: center;&#10;background-image: url('//static.instiz.net/static/190704_gonight.png');&#10;width: 100%;&#10;height: 50px;&#10;"></div>
-</div> 
-    <a href="{% url 'write' %}"><button type="button" class="btn btn-primary">글쓰기</button></a>      
     
-    
-    
+      <div id="mainWrapper">
+            <br><br>
+            <blockquote>
+                <p>40대 게시판</p>
+                <h5 class="text-right">
+                    🏠Home
+                    <span>&gt;</span>40대 게시판
+                    </h5>
+            </blockquote>
+            <li id='liSearchOption'>
+                <div>
+                    <select style="height:30px;" class="selectpicker">
+                        <option>제목</option>
+                        <option>작성자</option>
+                    </select>
+                    <input style="height:28px;" id='txtKeyWord' />
+                    <a href="" class="myButton" style="padding:1px 10px;">검색</a>
+                </div>
+            </li>      
+            <ul id ="ulTable">
+                <li>
+                    <ul>
+                        <li>No</li>
+                        <li>제목</li>
+                        <li>작성일</li>
+                        <li>작성자</li>
+                        <li>조회수</li>
+                    </ul>
+                </li>
+                
      {% for blog in blogs %}
-        <h2>{{blog.title}}</h2>
-        <p>{{blog.body}}</p>
-        <h3>{{blog.author}}</h3>
-        <h5>{{blog.created_date}}</h5>
-    {% if user.is_authenticated %}
-    <button><a href="{% url 'delete' blog.id%}">삭제</a></button>
-    <button><a href="{% url 'update' blog.id%}">수정</a></button>
-    {% else %}
-    <p class="notlogin">삭제와 수정은 로그인 후 가능합니다.</p>
-    {% endif %}
-        <hr>
-   
-    
-    {% endfor %}
-    
+                <li>
+                    <ul>
+                        <li>{{ blog.id }}</li>
+                        <li class="left"><a style="text-decoration: none; margin:10px;" href="{% url 'detail40' blog.id %}">{{blog.title}}</a></li> 
+                        <li>{{blog.created_date}}</li>
+                        <li>{{blog.user.username}}</li>
+                       
+                        <li>0</li>
+                    </ul>
+                    <br>
+                </li> 
+                {% endfor %} 
+                <br>
+                {% if user.is_authenticated %}
+                <a style="float:right;" href="{% url 'write_40' %}" class="myButton">글쓰기</a><br>
+                 {% else %}
+                <p> 글쓰기는 로그인 후 이용가능합니다.  </p>
+                {% endif %}
+            </ul>
+            <li>
+                <div id="divPaging">
+                    {%if posts.has_previous%}
+                    <a href="?page=1">◀◀</a>
+                    <a href="?page={{posts.previous_page_number}}">◀</a>
+                    {%endif%}
+                    <span>{{posts.number}}</span>
+                    <span>of</span>
+                    <span>{{posts.paginator.num_pages}}</span> 
+                    {%if posts.has_next%}
+                    <a href="?page={{posts.next_page_number}}">▶</a>
+                    <a href="?page={{posts.paginator.num_pages}}">▶▶</a>
+                    {%endif%}
+                </div>
+            </li>
+        </div>
+<div class="fb-con">
+<div id="fb-root"></div>
+  <div class="fb-page" data-href="https://www.facebook.com/seoul.kr" data-tabs="timeline" data-width="303px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/seoul.kr" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/seoul.kr/">서울시청</a></blockquote></div>
+<script>
+  $(document).ready(function(){
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.1&appId=932300826956410&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  });
+</script>
+</div>
+</div>
+    <div class="fb-con">
+<div id="fb-root"></div>
+  <div class="fb-page" data-href="https://www.facebook.com/seoulnpocenter" data-tabs="timeline" data-width="303px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/seoulnpocenter" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/seoulnpocenter">서울시청</a></blockquote></div>
+<script>
+  $(document).ready(function(){
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.1&appId=932300826956410&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  });
+</script>
+</div>
+</div>
 
+
+    
+    
+    
 
 </body>
 

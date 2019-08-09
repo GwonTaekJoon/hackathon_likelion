@@ -1,34 +1,12 @@
+{% load static %}
+
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<style>
-    .myButton {
-        background-color:#3379b7;
-	    display:inline-block;
-	    cursor:pointer;
-	    color:#ffffff;
-	    font-family:Arial;
-	    font-size:13px;
-	    padding:12px 22px;
-	    text-decoration:none;
-        float: right;
-        margin:10px;
-    }
-    .myButton:hover {
-    	background-color:#185f9e;
-        color:#ffffff;
-    }
-    .myButton:active {
-    	position:relative;
-        top:1px;
-    }
-    p {
-        font-size:30px; 
-        color:#337ab7;
-    }
-</style>
+
+    <link rel="stylesheet" href="{% static 'styles_wishwrite.css' %}">
 </head>
 <body>
     <br><br><br>

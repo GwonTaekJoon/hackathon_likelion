@@ -1,0 +1,72 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    <style>
+    .myButton {
+	    background-color:#3379b7;
+	    display:inline-block;
+	    cursor:pointer;
+	    color:#ffffff;
+	    font-family:Arial;
+	    font-size:13px;
+	    padding:12px 22px;
+	    text-decoration:none;
+        float: right;
+        margin:10px;
+    }
+    .myButton:hover {
+    	background-color:#185f9e;
+        color:#ffffff;
+    }
+    .myButton:active {
+    	position:relative;
+        top:1px;
+    }
+    p {
+        font-size:30px; 
+        color:#337ab7;
+    }
+    
+    </style>
+
+</head>
+<body>
+    <br><br><br>
+    <div class="container">
+        <form method='POST'>
+                {% csrf_token %}
+               <blockquote>
+                <p>인재정보</p>
+                <h5 class="text-right">
+                    🏠Home
+                    <span>&gt;</span>취업
+                    <span>&gt;</span>인재정보
+                    </h5>
+            </blockquote>
+            <hr>
+            <p>한 줄 소개</p>
+            <input type="text" class="form-control" name="title">
+            <table border=0>
+                <td>
+                        <p>희망직종  <input type="text" class="form-control" name="objective"></p>
+                        <p>성함  <input type="text" class="form-control" name="name"></p>
+                        <p>성별(남/여) <input type="text" class="form-control" name="gender"></p>
+                        <p>나이 <input type="text" class="form-control" name="age"></p>
+                        <p>경력 <input type="text" class="form-control" name="career"></p>
+                        <p>휴대폰번호 <input type="text" class="form-control" name="Phonenumber"></p>
+                </td>
+            </table>
+            <br>
+            <p>자기소개 및 희망근무조건</p>
+            <textarea class="form-control" rows="20" name="body"></textarea>
+            <br><br>
+            <a href="{% url 'joboffer' %}" class="myButton">취소</a> 
+            <input class="myButton" type="submit" value="작성">
+                   
+        </form>
+    </div>
+</body>
+</html>

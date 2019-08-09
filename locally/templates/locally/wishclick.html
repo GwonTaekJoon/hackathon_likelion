@@ -4,7 +4,167 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9fnpemqt72"></script>
+
+    
 <style>
+  @font-face { font-family: 'BMDOHYEON'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff'); font-weight: normal; font-style: normal; }
+   @font-face { font-family: 'SDKukdetopokki'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDKukdetopokki.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+    .cont{
+        float:left;
+        font-size:20px;
+    }
+    .my-hr {
+        border: 0;
+        height: 1px;
+        width: 1000px;
+        float:left;
+        background: rgb(0, 0, 0);
+    }
+    p {
+        position: relative;
+        display: inline-block;
+        background: linear-gradient(-90deg, #000000 50%, #000000 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        white-space: nowrap;
+        font-size:30px;
+    }
+    .ab{
+        float:left;
+        margin-right:50px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+    }
+    /* lnb */
+    #lnb {
+      position: relative;
+      width: 200px;
+    }
+    #lnb h1 {
+      height: 40px;
+      text-align: center;
+      color: #fff;font-size: 20px;
+      line-height: 1.8;
+      letter-spacing: -2px; 
+      background: #337ab7;
+    margin-left: 5px;
+    }
+    #lnb > ul > li { 
+      border-bottom: 1px solid #dcdcdc;
+    }
+    #lnb > ul > li > a {
+      display: block;
+      padding: 14px 35px 14px 15px; 
+      color: inherit;
+      font-size: 14px;background:#f5f2ec url(http://cfile26.uf.tistory.com/image/2417E04D570C5C02256897) no-repeat 95% 15px;
+    }
+    #lnb > ul > li a:hover { 
+      text-decoration:none !important; 
+      color: #337ab7; 
+      background-color: #f5f2ec;  
+      width:500px;
+    }
+    .btn {
+      width: 60px; height: 26px;
+      font-size:10px;
+    }
+    body {
+      font-family:'SDKukdetopokki';
+      width: 1500px; 
+      margin: 0px auto;
+    }
+    .nav1{
+        text-align: center;
+    }
+    .nav2 {
+        display: block;
+        text-align:center;
+        font-size: 25px;
+       
+        margin-right: 20px;
+        background-color:#337ab7;
+        padding-top:15px;
+        padding-bottom:15px;
+    }
+    .title{
+        display: inline-block;
+        text-align: center;
+        margin-left : 70px;
+        margin-top: 10px;
+        font-size: 40px;
+    }
+    .title2{
+        display: inline-block;
+        text-align: center;
+        margin-right : 30px;
+        margin-top: 40px;
+        float:right;
+        font-size: 15px;
+    }
+    .title3{
+        color:white;
+        margin-left:20px;
+        margin-right : 40px;
+        margin-top: 0px;
+        margin-bottom :0px;
+    }
+    .title3:hover{
+        color:white;
+    }
+    a {
+    -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    display: inline-block;
+    margin: 20px auto;
+    max-width: 180px;
+    text-decoration: none;
+    border-radius: 4px;
+    }
+    .button{
+      padding: 20px 30px;
+    }
+    a.button {
+      color: rgba(30, 22, 54, 0.6);
+      box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+      margin-right:30px;
+    }
+    .wrap{
+     text-align: center;
+    }
+    a.button:hover {
+      color: rgba(255, 255, 255, 0.85);
+      box-shadow: #337ab7 0 0px 0px 40px inset;
+    }
+    .pills {
+        float:left;
+    }
+    .event{
+      float:left;
+    }
+    .sizeup{
+        width:2000px;
+    }
     .myButton {
 	    background-color:#3379b7;
 	    display:inline-block;
@@ -32,8 +192,40 @@
 </style>
 </head>
 <body>
+      <div class="nav1">
+        <a href="{% url 'choice'%}"><p class="title" >locally</p></a> <a href="{% url 'site'%}"><p class="title">서울</p></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}" class="title2"><p>로그아웃</p></a> <p class="title2">{{user.username}}님이 로그인중</p>
+        {% else %}
+            <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="{%url 'register'%}"  class="title2"><p>회원가입</p></a>
+        {% endif %}
+    </div>
+    <div class="nav2">
+            <a href="{% url 'schedule'%}" class="title3"> 일정</a>
+            <a href="{% url 'wish'%}" class="title3">바란다</a>
+            <a href="{% url 'market'%}" class="title3">장터</a>
+            <a href="{% url 'job'%}" class="title3">취업</a>
+            <a href="{% url 'guide'%}" class="title3">이용안내</a>
+    </div>
+    <div class="wrap">
+            <a href="{% url 'ten' %}" class="button">10대</a>
+            <a href="{% url 'twenty' %}" class="button">20대</a>
+            <a href="{% url 'thirty' %}" class="button">30대</a>
+            <a href="{% url 'forty' %}" class="button">40대</a>
+            <a href="{% url 'fifty' %}" class="button">50대</a>
+    </div>
+    <div id="lnb" class="ab">
+        <h1>행사일정</h1>
+        <ul>
+            <li><a href="#none">시민제안</a></li>
+            <li><a href="https://www1.president.go.kr/petitions">시민청원</a></li>
+        </ul>
+    </div>
+    
     <br><br><br>
+         <div class="cont">
     <div class="container">
+    <div class="ab"> 
             <blockquote>
                 <p>시민의견</p>
                 <h5 class="text-right">
@@ -42,12 +234,12 @@
                     <span>&gt;</span>시민의견
                 </h5>
             </blockquote>
-            <br><hr><br>
+            <hr>
             <div class="card mb-4 shadow-sm">
                 <div class="card-header">
                     <h1>{{ wish.title }}</h1><br>
                     <h5>
-                        <span></span>작성자:
+                        <span></span>작성자:{{wish.wish_user}}
                         <span>&nbsp;</span> 작성날짜: {{ wish.pub_date }}
                         <span>&nbsp;</span> 조회수: 
                     </h5>
@@ -59,22 +251,25 @@
             <a href="{% url 'wishdelete' wish.id %}" class="myButton">삭제</a>
             <a href="{% url 'wishupdate' wish.id %}" class="myButton">수정</a>
             <a href="{% url 'wish' %}" class="myButton">목록</a>
-            <br><br><br><br><br>
-            <p>댓글 {{wish.comments.count}} 개</p></p>
+            <br><br><br>
+            <p>댓글 {{wish.comments.count}} 개</p>
             <hr>
             <form action="{% url 'comment_write' pk=wish.pk %}" method="POST">
                 {% csrf_token %}
-                <input style="height:100px; width:1000px; font-size:20px;"type="text" name="comment_contents" placeholder="댓글을 입력해 주세요.">
+                <input style="height:100px; width:900px; font-size:20px;"type="text" name="comment_contents" placeholder="댓글을 입력해 주세요.">
                 <input class="myButton" type="submit" value="등록">
             </form>
             <br><br>
             {% for comment in wish.comments.all %}
-            <div class="comment">
+            <div clzass="comment">
                 <h2>{{ comment.comment_contents }}</h2>
                 <h5>{{ comment.create_date }}</h5>
                 <hr>
             </div>
             {% endfor %} 
     </div>
+        </div>
+    </div>
+    
 </body>
 </html>

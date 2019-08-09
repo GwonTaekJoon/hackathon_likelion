@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+
+<link rel="stylesheet" href="{% static 'styles_schedule.css' %}">
+
+
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9fnpemqt72"></script>
+
+    
+<style>
+  @font-face { font-family: 'BMDOHYEON'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff'); font-weight: normal; font-style: normal; }
+   @font-face { font-family: 'SDKukdetopokki'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDKukdetopokki.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+    .cont{
+       margin-left:200px;
+    }
+    .my-hr {
+        border: 0;
+        height: 1px;
+        width: 1000px;
+        float:left;
+        background: rgb(0, 0, 0);
+    }
+    p {
+        position: relative;
+        display: inline-block;
+        background: linear-gradient(-90deg, #000000 50%, #000000 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        white-space: nowrap;
+        font-size:30px;
+    }
+    .ab{
+        float:left;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+    }
+    /* lnb */
+    #lnb {
+      position: relative;
+      width: 200px;
+    }
+    #lnb h1 {
+      height: 40px;
+      text-align: center;
+      color: #fff;font-size: 20px;
+      line-height: 1.8;
+      letter-spacing: -2px; 
+      background: #337ab7;
+    margin-left: 5px;
+    }
+    #lnb > ul > li { 
+      border-bottom: 1px solid #dcdcdc;
+    }
+    #lnb > ul > li > a {
+      display: block;
+      padding: 14px 35px 14px 15px; 
+      color: inherit;
+      font-size: 14px;background:#f5f2ec url(http://cfile26.uf.tistory.com/image/2417E04D570C5C02256897) no-repeat 95% 15px;
+    }
+    #lnb > ul > li a:hover { 
+      text-decoration:none !important; 
+      color: #337ab7; 
+      background-color: #f5f2ec;  
+      width:500px;
+    }
+    .btn {
+      width: 60px; height: 26px;
+      font-size:10px;
+    }
+    body {
+      font-family:'SDKukdetopokki';
+      width: 1500px; 
+      margin: 0px auto;
+    }
+    .nav1{
+        text-align: center;
+         font-size:10px;
+    }
+    .nav2 {
+        display: block;
+        text-align:center;
+        font-size: 25px;
+       
+        margin-right: 20px;
+        background-color:#337ab7;
+        padding-top:15px;
+        padding-bottom:15px;
+    }
+    .title{
+        display: inline-block;
+        text-align: center;
+        margin-left : 70px;
+        margin-top: 10px;
+        font-size: 40px;
+    }
+    .title2{
+        display: inline-block;
+        text-align: center;
+        margin-right : 30px;
+        margin-top: 40px;
+        float:right;
+        font-size: 15px;
+    }
+    .title3{
+        color:white;
+        margin-left:20px;
+        margin-right : 40px;
+        margin-top: 0px;
+        margin-bottom :0px;
+    }
+    .title3:hover{
+        color:white;
+    }
+    a {
+    -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    display: inline-block;
+    margin: 20px auto;
+    max-width: 180px;
+    text-decoration: none;
+    border-radius: 4px;
+    }
+    .button{
+      padding: 20px 30px;
+    }
+    a.button {
+      color: rgba(30, 22, 54, 0.6);
+      box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+      margin-right:30px;
+    }
+    .wrap{
+     text-align: center;
+    }
+    a.button:hover {
+      color: rgba(255, 255, 255, 0.85);
+      box-shadow: #337ab7 0 0px 0px 40px inset;
+    }
+    .pills {
+        float:left;
+    }
+    .event{
+      float:left;
+    }
+    .sizeup{
+        width:2000px;
+    }
+     #view_top {
+    position: relative;
+    width: 100%;
+    border-top: #767676 1px solid;
+    border-bottom: #767676 1px solid;
+    box-sizing: border-box;
+    background-color: #f4f6f7;
+    padding: 25px 15px;
+}
+#view_ct {
+    padding: 10px 0px;
+    border-bottom: #767676 1px solid;
+    margin-bottom: 100px;
+}
+</style>
+</head>
+
+<body>
+    <div class="nav1">
+        <a href="{% url 'choice'%}"><p class="title" >locally</p></a> <a href="{% url 'site'%}"><p class="title">서울</p></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}" class="title2"><p>로그아웃</p></a> <p class="title2">{{user.username}}님이 로그인중</p>
+        {% else %}
+            <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="{%url 'register'%}"  class="title2"><p>회원가입</p></a>
+        {% endif %}
+    </div>
+    <div class="nav2">
+            <a href="{% url 'schedule'%}" class="title3"> 일정</a>
+            <a href="{% url 'wish'%}" class="title3">바란다</a>
+            <a href="{% url 'market' %}" class="title3">장터</a>
+            <a href="{% url 'job' %}" class="title3">취업</a>
+            <a href="{% url 'guide' %}" class="title3">이용안내</a>
+    </div>
+    <div class="wrap">
+        
+     
+        <a href="{%url 'ten'%}" class="button">10대</a>
+        <a href="{%url 'twenty'%}" class="button">20대</a>
+        <a href="{%url 'thirty'%}" class="button">30대</a>
+        <a href="{%url 'forty'%}" class="button">40대</a>
+        <a href="{%url 'fifty'%}" class="button">50대</a>
+    </div>
+    <div id="lnb" class="ab">
+        <h1>행사일정</h1>
+        <ul>
+            <li><a href="{% url 'schedule'%}" style="text-align:center">문화행사</a></li>
+            <li><a href="{% url 'schedulebokji'%}" style="text-align:center">복지행사</a></li>
+        </ul>
+    </div>
+     <div class="cont">
+    <div class="container">
+    <div class="ab">
+             <blockquote>
+                <p>문화행사</p>
+                <h5 class="text-right">
+                    🏠Home
+                    <span>&gt;</span>일정
+                    <span>&gt;</span>문화행사
+                </h5>
+    </blockquote>  <br> <br>
+         <center>
+    <div id="view_top">
+      
+							
+        <h2 style="background:none;">한국근현대명화전 《근대의 꿈: 꽃나무는 심어 놓고》</h2>		
+    </div>
+        
+    </center>
+    <div id="view_ct">
+           <h4>전 시 명 : 한국근현대명화전 《근대의 꿈: 꽃나무는 심어 놓고》<br><br>
+            전시기간 : 2019.7.2.(화) - 9.15.(일)<br><br>
+            전시장소 : 서울시립 북서울미술관 2층(전시실2, 프로젝트갤러리2)<br><br>
+            참여작가 : 38명(천경자, 김환기, 이중섭, 박수근, 구본웅 등)<br><br>
+            작 품 수 : 74점 내외<br><br>
+            전시내용 : 서울시립미술관의 대표 소장품인 천경자의 작품을 비롯, 일제강점기 이후 한국전쟁 시기를 지내온 한국의 근현대미술을 살펴보는 전시로, 시대의 변화를 반영하는 근대기적 서울의 모습을 근대 대표 작가들의 작업을 살피고, 당시 국외 미술 사조의 영향을 받아 독자적 영역을 구축해 나간 한국근현대미술의 주요 작품들을 보여주고자 합니다.
+        </h4><br><br>
+           
+           <img src="http://news.seoul.go.kr/culture/files/2019/06/5d0c72cca0e366.73148287-768x1133.jpg" style="width:1000px;"><br><br>
+
+         
+     
+        </div>
+     
+        </div>
+        </div>
+         </div>
+    </div>
+</body>

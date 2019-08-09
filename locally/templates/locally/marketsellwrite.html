@@ -1,14 +1,53 @@
+{% load static %}
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'market-sell-write.css' %}">
     <meta charset="UTF-8"> 
     <title>팝니다_image</title> 
 </head> 
 <body> 
-    <form method = "post" enctype="multipart/form-data"> 
+    <br><br><br>
+    <div class="container">
+<form method = "POST" enctype="multipart/form-data"> 
         {% csrf_token %} 
-        {{ form.as_p }} 
-        <button type="submit">Upload</button> 
-    </form> 
+    <blockquote>
+                <p>팝니다</p>
+                <h5 class="text-right">
+                    🏠Home
+                    <span>&gt;</span>장터
+                    <span>&gt;</span>바란다
+                </h5>
+            </blockquote>
+        
+    <hr>
+            <p>제목</p>
+            {{ form.title }}
+            <br>
+            <p>내용</p>
+            {{ form.body}}
+            <br><br>
+<div class="form-group">
+    <label for="exampleInputFile">파일 업로드</label>
+    <input type="file" id="exampleInputFile"></div>
+    <a href="{% url 'marketsell' %}" class="myButton">취소</a> 
+            <input class="myButton" type="submit" value="작성">
+
+         
+</form>
+   </div> 
+    
+    
+    <h2>{{ Imagepost.title }}</h2>
+{% if post.photo %}
+path :{{ post.photo.path }} # /Users/nickname/documents/practice/media/jeju_pic.png
+url : {{ post.photo.url }} # /media/jeju_pic.png
+<img src="{{ post.photo.url }}" alt="">
+{% endif %}
 </body> 
 </html> 
+
+ 

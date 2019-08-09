@@ -1,0 +1,93 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    .myButton {
+	    background-color:#3379b7;
+	    display:inline-block;
+	    cursor:pointer;
+	    color:#ffffff;
+	    font-family:Arial;
+	    font-size:13px;
+	    padding:12px 22px;
+	    text-decoration:none;
+        float: right;
+        margin:10px;
+    }
+    .myButton:hover {
+    	background-color:#185f9e;
+        color:#ffffff;
+    }
+    .myButton:active {
+    	position:relative;
+        top:1px;
+    }
+    p {
+        font-size:30px; 
+        color:#337ab7;
+    }
+    
+    </style>
+
+</head>
+<body>
+    <br><br><br>
+    <div class="container">
+            <blockquote>
+                <p>인재정보</p>
+                <h5 class="text-right">
+                    🏠Home
+                    <span>&gt;</span>취업
+                    <span>&gt;</span>인재정보
+                    </h5>
+            </blockquote>
+            <br><hr><br>
+            <h4>작성날짜: {{ joboffer.pub_date }}</h4>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header" style="text-align:center;">
+                    <br><h1 style="font-size:40px;">{{ joboffer.title }}</h1><br><hr>
+                    <table border=0>
+                        <td style="width:137px;">
+                            <img src="https://image.flaticon.com/icons/svg/149/149071.svg" style=" margin:30px; width:200px; height:150px;">
+                        </td>
+                        <td>
+                            <h1 style="margin-bottom: 20px;">{{ joboffer.name }} ({{ joboffer.gender }} / {{ joboffer.age }})</h1>
+                            <h2>
+                                <img src=" https://image.flaticon.com/icons/svg/259/259510.svg" style="width:35px; height:30px;">
+                                <span></span>희망직종: {{ joboffer.objective }}
+                            </h2>
+                            <h2>
+                                <img src="https://image.flaticon.com/icons/svg/1201/1201291.svg"  style="width:30px; height:25px;">
+                                <span></span>경력: {{ joboffer.career }}
+                            </h2>
+                            <h2>
+                                <img src="https://image.flaticon.com/icons/svg/9/9243.svg" style="width:30px; height:25px;">
+                                <span></span>휴대폰: {{ joboffer.Phonenumber }}
+                            </h2>
+                        </td>
+                    </table>
+           
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body" style="text-align:center;">
+                   <h1 style="font-size:35px;">자기소개 및 희망근무조건</h1><br><hr>
+                    <h2>{{ joboffer.body }}</h2>
+                </div>
+            </div>
+            { % if user.is_authenticated % }
+            <a href="{% url 'jobofferdelete' joboffer.id %}" class="myButton">삭제</a>
+            <a href="{% url 'jobofferupdate' joboffer.id %}" class="myButton">수정</a>
+        { % else % }
+        <p>
+            수정과 삭제는 로그인 후에 가능합니다.
+        </p>
+        { % endif % }
+            <a href="{% url 'joboffer' %}" class="myButton">목록</a>
+            <br><br><br><br><br>
+    </div>
+</body>
+</html>

@@ -9,7 +9,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-    <link rel="stylesheet" href="{% static 'base.css' %}"
+        <link rel="stylesheet" href="{% static 'styles_base.css' %}">
+        
 </head>
 
                 
@@ -22,13 +23,6 @@
     
     
     <body>
-        <div class="nav2">
-            <a href="{% url 'schedule'%}" class="title3"> 일정</a>
-            <a href="{% url 'wish'%}" class="title3">바란다</a>
-            <a href="{% url 'market' %}" class="title3">장터</a>
-            <a href="{% url 'job' %}" class="title3">취업</a>
-            <a href="{% url 'guide' %}" class="title3">이용안내</a>
-    </div>
         {% block contents %}
     
     {% endblock %}

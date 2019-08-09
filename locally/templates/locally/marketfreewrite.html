@@ -1,0 +1,36 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'styles_market-buy-write.css' %}">
+</head>
+<body>
+    <br><br><br>
+    <div class="container">
+        <form method="POST">{% csrf_token %}
+            <blockquote>
+                <p>무료나눔</p>
+                <h5 class="text-right">
+                    🏠Home
+                    <span>&gt;</span>장터
+                    <span>&gt;</span>무료나눔
+                </h5>
+            </blockquote>
+            <hr>
+            <p>제목</p>
+            {{ form.title }}
+            <br>
+            <p>내용</p>
+            {{ form.body}}
+            <br><br>
+            <div class="form-group">
+            <label for="exampleInputFile">파일 업로드</label>
+            <input type="file" id="exampleInputFile"></div>
+            <a href="{% url 'marketfree' %}" class="myButton">취소</a> 
+            <input class="myButton" type="submit" value="작성">
+        </form>
+    </div>
+</body>
+</html>

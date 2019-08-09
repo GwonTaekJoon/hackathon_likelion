@@ -11,6 +11,7 @@
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9fnpemqt72"></script>
 @font-face { font-family: 'BMDOHYEON'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff'); font-weight: normal; font-style: normal; }
    @font-face { font-family: 'SDKukdetopokki'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDKukdetopokki.woff') format('woff'); font-weight: normal; font-style: normal; }
+ 
     .my-hr {
         border: 0;
         height: 1px;
@@ -18,15 +19,15 @@
         float:left;
         background: rgb(0, 0, 0);
     }
-    p {
-        position: relative;
-        display: inline-block;
-        background: linear-gradient(-90deg, #337ab7 50%, #000000 50%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        white-space: nowrap;
-        font-size:30px;
-    }
+p{
+  
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(-90deg, #337ab7 50%, #000000 50%);
+    white-space: nowrap;
+    font-size: 30px;
+    background: #fff;  
+}
     .ab{
         float:left;
         margin-right:110px;
@@ -94,6 +95,7 @@
         margin-left : 70px;
         margin-top: 10px;
         font-size: 40px;
+        background:#fff;
     }
     .title2{
         display: inline-block;

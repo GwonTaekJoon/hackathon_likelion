@@ -1,0 +1,190 @@
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=9fnpemqt72"></script>
+@font-face { font-family: 'BMDOHYEON'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff'); font-weight: normal; font-style: normal; }
+   @font-face { font-family: 'SDKukdetopokki'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDKukdetopokki.woff') format('woff'); font-weight: normal; font-style: normal; }
+    .my-hr {
+        border: 0;
+        height: 1px;
+        width: 1000px;
+        float:left;
+        background: rgb(0, 0, 0);
+    }
+    p {
+        position: relative;
+        display: inline-block;
+        background: linear-gradient(-90deg, #337ab7 50%, #000000 50%);
+        -webkit-background-clip: text;
+        white-space: nowrap;
+        font-size:30px;
+    }
+    .ab{
+        float:left;
+        margin-right:110px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+    }
+    /* lnb */
+    #lnb {
+      position: relative;
+      width: 200px;
+    }
+    #lnb h1 {
+      height: 40px;
+      text-align: center;
+      color: #fff;font-size: 20px;
+      line-height: 1.8;
+      letter-spacing: -2px; 
+      background: #337ab7; 
+    }
+    #lnb > ul > li { 
+      border-bottom: 1px solid #dcdcdc;
+    }
+    #lnb > ul > li > a {
+      display: block;
+      padding: 14px 35px 14px 15px; 
+      color: inherit;
+      font-size: 14px;background:#f5f2ec url(http://cfile26.uf.tistory.com/image/2417E04D570C5C02256897) no-repeat 95% 15px;
+    }
+    #lnb > ul > li a:hover { 
+      text-decoration:none !important; 
+      color: #337ab7; 
+      background-color: #f5f2ec;  
+      width:500px;
+    }
+    .btn {
+      width: 60px; height: 26px;
+      font-size:10px;
+    }
+    body {
+      font-family:'SDKukdetopokki';
+      width: 1500px; 
+      margin: 20px auto;
+    }
+    .nav1{
+        text-align: center;
+    }
+    .nav2 {
+        display: block;
+        text-align:center;
+        font-size: 25px;
+        margin-right: 10px;
+        margin-left:10px;
+        background-color:#337ab7;
+        padding-top:15px;
+        padding-bottom:15px;
+    }
+    .title{
+        display: inline-block;
+        text-align: center;
+        margin-left : 70px;
+        margin-top: 10px;
+        font-size: 40px;
+    }
+    .title2{
+        display: inline-block;
+        text-align: center;
+        margin-right : 30px;
+        margin-top: 40px;
+        float:right;
+        font-size: 15px;
+    }
+    .title3{
+        color:white;
+        margin-left:20px;
+        margin-right : 40px;
+        margin-top: 0px;
+        margin-bottom :0px;
+    }
+    .title3:hover{
+        color:white;
+    }
+    a {
+    -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    display: inline-block;
+    margin: 20px auto;
+    max-width: 180px;
+    text-decoration: none;
+    border-radius: 4px;
+    }
+    .button{
+      padding: 20px 30px;
+    }
+    a.button {
+      color: rgba(30, 22, 54, 0.6);
+      box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+      margin-right:30px;
+    }
+    .wrap{
+     text-align: center;
+    }
+    a.button:hover {
+      color: rgba(255, 255, 255, 0.85);
+      box-shadow: #337ab7 0 0px 0px 40px inset;
+    }
+    .pills {
+        float:left;
+    }
+    .event{
+      float:left;
+    }
+    ul, li{ 
+        list-style:none;
+        text-align:center;
+        padding:0;
+        margin:0; 
+    }
+    #mainWrapper{float:left;
+        width: 1000px;
+        margin: 0 auto; 
+    }
+    #mainWrapper > ul > li:first-child {
+        text-align: center;
+        font-size:14pt;
+        height:40px;
+        width:1000px;
+        vertical-align:middle;
+        line-height:30px;
+    }
+    #ulTable {
+        margin-top:10px;
+    }
+    #ulTable > li:first-child > ul > li {
+        background-color:#337ab7;
+        font-weight:bold;
+        text-align:center;
+    }
+    #ulTable > li > ul {
+        clear:both;
+        padding:0px auto;
+        position:relative;
+        min-width:40px;
+    }
+    #ulTable > li > ul > li { 
+        float:left;
+        font-size:10pt;
+        border-bottom:1px solid silver;
+        vertical-align:baseline;
+    }    
+    #ulTable > li > ul > li:first-child               {width:10%;} /*No 열 크기*/
+    #ulTable > li > ul > li:first-child +li           {width:45%;} /*제목 열 크기*/
+    #ulTable > li > ul > li:first-child +li+li        {width:20%;} /*작성일 열 크기*/
+    #ulTable > li > ul > li:first-child +li+li+li     {width:15%;} /*작성자 열 크기*/
+    #ulTable > li > ul > li:first-child +li+li+li+li {width:10%;} /*조회수 열 크기*/

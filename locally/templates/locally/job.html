@@ -2,10 +2,12 @@
 {% load staticfiles %}
 <html>
 <head>
-    
-
-
-
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -21,13 +23,102 @@
     <script
   src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="{% static 'styles_job.css' %}">
+    <style>
+          .box{
+        padding:0px;
+    }
+    .box-part{
+    background:#FFF; !important;
+    border-radius:0; !important;
+    padding:60px 10px; !important;
+   margin: 5px 10px; !important;
+        width:30px; !important;
+}
+       nav > .nav.nav-tabs{
+
+border: none; !important;
+  color:#fff; !important;
+  background:#272e38; !important;
+  border-radius:0; !important;
+
+}
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active
+{
+border: none; !important;
+  padding: 18px 25px; !important;
+  color:#fff; !important;
+  background:#272e38; !important;
+  border-radius:0; !important;
+}
+
+nav > div a.nav-item.nav-link.active:after
+{
+content: ""; !important;
+position: relative; !important;
+bottom: -60px; !important;
+left: -10%; !important;
+border: 15px solid transparent; !important;
+border-top-color: #337ab7 ; !important;
+}
+.tab-content{
+background: #fdfdfd; !important;
+  line-height: 25px; !important;
+  border: 1px solid #ddd; !important;
+  border-top:5px solid #337ab7; !important;
+  border-bottom:5px solid #337ab7; !important;
+  padding:30px 25px; !important;
+} 
+
+nav > div a.nav-item.nav-link:hover, 
+nav > div a.nav-item.nav-link:focus
+{
+border: none; !important;
+  background: #337ab7; !important;
+  color:#fff; !important;
+  border-radius:0; !important;
+  transition:background 0.20s linear; !important;
+}
 
 
+.myButton {
+	background-color:#3379b7; !important;
+	border:1px solid #000000; !important;
+	display:inline-block; !important;
+	cursor:pointer; !important;
+	color:#000000; !important;
+	font-family:Arial; !important;
+	font-size:15px; !important;
+	padding:10px 11px; !important;
+	text-decoration:none; !important;
+    width:85px; !important;
+    height:40px; !important;
+    Border-Radius: 0px; !important;
+    margin:0px;
+   
+}
+.myButton:hover {
+	background-color:#d4dee6; !important;
+    text-decoration:none; !important;
+    color:#000000; !important;
+}
+.myButton:active {
+	position:relative; !important;
+	top:1px; !important;
+}
+    td {
+    padding:1px; !important;
+}
+    </style>
 </head>
 <body>
     <div class="nav1">
-        <p class="title" >locally</p> <p class="title">서울</p>
-        <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="register"  class="title2"><p>회원가입</p></a> 
+        <a href="{% url 'choice'%}"><p class="title" >locally</p></a> <a href="{% url 'site'%}"><p class="title">서울</p></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}" class="title2"><p>로그아웃</p></a> <p class="title2">{{user.username}}님이 로그인중</p>
+        {% else %}
+            <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="{%url 'register'%}"  class="title2"><p>회원가입</p></a>
+        {% endif %}
     </div>
     <div class="nav2">
             <a href="{% url 'schedule'%}" class="title3"> 일정</a>
@@ -37,51 +128,317 @@
             <a href="{% url 'guide'%}" class="title3">이용안내</a>
     </div>
     <div class="wrap">
-            <a href="#" class="button">10대</a>
-            <a href="#" class="button">20대</a>
-            <a href="#" class="button">30대</a>
-            <a href="#" class="button">40대</a>
-            <a href="#" class="button">50대</a>
+            <a href="{%  url 'ten' %}" class="button">10대</a>
+            <a href="{% url 'twenty' %}" class="button">20대</a>
+            <a href="{% url 'thirty' %}" class="button">30대</a>
+            <a href="{% url 'forty' %}" class="button">40대</a>
+            <a href="{% url 'fifty' %}" class="button">50대</a>
     </div>
-    
-    <div id="lnb">
-  <h1>구인구직</h1>
-  <ul>
-    <li><a href="#none">구인</a>
-      <ul>
-        <li><a href="#none">일자리 모집하기</a>
-        </li>
-        <li><a href="#none">- 2Depth</a>
-          <ul>
-            <li><a href="#none">- 3Depth</a></li>
-            <li><a href="#none">- 3Depth</a></li>
-          </ul>
-        </li>
-        <li><a href="#none">- 2Depth</a></li>
-        <li><a href="#none">- 2Depth</a></li>
-      </ul>
-    </li>
-    
-    <li><a href="#none">구직</a>
-      <ul>
-        <li><a href="#none">연령별</a>
-          <ul>
-            <li><a href="#none">60대 이상</a></li>
-              <li><a href="#none">40-50대</a></li>
-              <li><a href="#none">20-30대</a></li>
-          </ul>
-        </li>
-        <li><a href="#none">성별</a>
-          <ul>
-            <li><a href="#none">여성</a></li>
-            <li><a href="#none">남성</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
+      <div class="col-md-2">
+    <div class="ab" id="lnb">
+        <h1>구인구직</h1>
+        <ul>
+            <li><a href="#none">인재 정보</a>
+                <ul>
+                    <li><a href="{% url 'joboffer' %}">일자리 지원하기</a>
+                </ul>
+            </li>
+            <li><a href="#none">일자리 정보</a>
+                <ul>
+                    <li><a href="{% url 'jobapply' %}">일자리 공고</a></li>
+                    <li><a href="{% url 'jobapplywrite' %}">일자리 모집하기</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    </div>
+     <div class="col-md-10">
+    <div class="ab" style="font-family:나눔고딕;">
+                  <blockquote>
+                <p>취업</p>
+                <h5 class="text-right">
+                    🏠Home
+                    <span>&gt;</span>취업
+                      </blockquote><br>
+                  
+                                 <table border="0">
+                              <td>
+                                    <h3>구별 일자리센터</h3>
+                                    <table border="0" style="margin-right:10px;" >
+                                       
+                                <tr><!-- 첫번째 줄 시작 -->
+                                    <td><a href="http://job.seoul.go.kr/jongno/Main.do?method=getMain" class="myButton">종로구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/junggu/Main.do?method=getMain" class="myButton">중구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/yongsan/Main.do?method=getMain" class="myButton">용산구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/seongdong/Main.do?method=getMain" class="myButton">성동구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/gwangjin/Main.do?method=getMain" class="myButton">광진구</a></td>
+                                </tr><!-- 첫번째 줄 끝 -->
+                                <tr><!-- 두번째 줄 시작 -->
+                                    <td><a href="http://job.seoul.go.kr/dongdaemun/Main.do?method=getMain" class="myButton">동대문구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/jungnang/Main.do?method=getMain" class="myButton">중랑구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/seongbuk/Main.do?method=getMain" class="myButton">성북구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/gangbuk/Main.do?method=getMain" class="myButton">강북구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/dobong/Main.do?method=getMain" class="myButton">도봉구</a></td>
+                                </tr><!-- 두번째 줄 끝 -->
+                                <tr><!-- 두번째 줄 시작 -->
+                                    <td><a href="http://job.seoul.go.kr/nowon/Main.do?method=getMain" class="myButton">노원구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/eunpyoung/Main.do?method=getMain" class="myButton">은평구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/seodaemun/Main.do?method=getMain" class="myButton">서대문구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/mapo/Main.do?method=getMain" class="myButton">마포구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/yangcheon/Main.do?method=getMain" class="myButton">양천구</a></td>
+                                </tr><!-- 두번째 줄 끝 -->
+                                <tr><!-- 두번째 줄 시작 -->
+                                    <td><a href="http://job.seoul.go.kr/gangseo/Main.do?method=getMain" class="myButton">강서구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/guro/Main.do?method=getMain" class="myButton">구로구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/yeongdeungpo/Main.do?method=getMain" class="myButton">영등포구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/dongjak/Main.do?method=getMain" class="myButton">동작구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/gwanak/Main.do?method=getMain" class="myButton">관악구</a></td>
+                                </tr><!-- 두번째 줄 끝 -->
+                                <tr><!-- 두번째 줄 시작 -->
+                                    <td><a href="http://job.seoul.go.kr/geumcheon/Main.do?method=getMain" class="myButton">금천구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/seocho/Main.do?method=getMain" class="myButton">서초구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/gangnam/Main.do?method=getMain" class="myButton">강남구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/songpa/Main.do?method=getMain" class="myButton">송파구</a></td>
+                                    <td><a href="http://job.seoul.go.kr/gangdong/Main.do?method=getMain" class="myButton">강동구</a></td>
+                                </tr><!-- 두번째 줄 끝 -->
+                                </table>
+
+                            </td>
+                            <td>
+                                    <h3>게시판 목록</h3>
+                                    <div class="row">
+                                        <div class="col-xs-12 ">
+                                            <nav>
+                                                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                                  <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">인재정보</a>
+                                                  <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">일자리정보</a>
+                                                 
+                                              </div>
+                                              </nav>
+                                              <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                                  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" style="font-size:20px; width:530px; height:150px;">
+                                                      <ul>
+                                                          <li>
+                                                              {% for joboffer in joboffer_list %}
+                                                          <a href="{ % url 'jobofferclick' joboffer.id % }"><li style="width:300px;">★{{ joboffer.title }}</li></a>
+                                                        {% endfor %}
+                                                          </li>
+                                                        
+                                                      </ul>
+                                                  </div>
+                                                  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"style="font-size:20px; width:530px; height:150px;">
+                                                      <ul>
+                                                          <li>
+                                                          {% for apply in applys%}
+                                                          <a href="{% url 'jobapplydetail' apply.id %}"><li style="width:300px;">★{{ apply.title }}</li></a>
+                                                        {% endfor %}
+                                                          </li>
+                                                      </ul>
+                                                  </div>
+                                         
+                                              </div>
+                                      </div>
+                                  </div>
+                            </td>
+
+                            </table>
+            <div class="box">
+               
+                    <h3>
+                        관련사이트
+                    </h3>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+	
+	<!--페이지-->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>
+	<!--페이지-->
+
+	<div class="carousel-inner">
+		<!--슬라이드1-->
+		<div class="item active"> 
+			 <div class="row" style="background:#337ab7; width:1010px; margin-left:-5px;">
+                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                                <div class="box-part text-center" style="width:320px; height:180px;">
+                                    <img src="http://job.seoul.go.kr/www/images/new/common/logo2.gif">
+                                 
+                                    <a href="http://job.seoul.go.kr/Main.do?method=getMain"><h4>서울일자리포털</h4></a>
+                                  
+                                </div>
+                            </div>	
+                        
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                                <div class="box-part text-center" style="width:320px; height:180px;">
+                                    <img src="http://www.worktogether.or.kr/images/common/layout/n_logo.gif">
+                                    
+                                            <h4>장애인고용포털</h4>
+                                  
+                                </div>
+                            </div>	 
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                                <div class="box-part text-center" style="width:305px; height:180px;">
+                                    <img src="http://www.worldjob.or.kr/design/new/images/main/header/logo.png">
+                                   
+                                            <h4>해외취업</h4>
+                                  
+                                    
+                                </div>
+                            </div>	 
+                                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                                <div class="box-part text-center" style="width:320px; height:180px;">
+                                    <img src="https://www.dream.go.kr/resources/dream/image/logo.png">
+                                   
+                                            <h4>여성일자리경력개발포털</h4>
+                           
+                                </div>
+                            </div>	
+                            
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                                <div class="box-part text-center" style="width:320px; height:180px;">
+                                    <img src=" http://www.keis.or.kr/site/main/images/common/logo.png">
+                                   
+                                            <h4>한국고용정보원</h4>
+                           
+                                   
+                                </div>
+                            </div>	
+                         
+                            
+                        
+                            
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                           
+                                                <div class="box-part text-center" style="width:305px; height:180px;">
+                                                     <img src="  https://www.rndjob.or.kr/images/common/head_logo.png">
+                                                  
+                                                
+                                                  
+                                                        <h4>이공계인력중개센터</h4>
+                                                
+                                        
+                                                    
+                                                 </div>
+                                            </div>	
+                         
+                            
+                                   
+                              
+
+                    
+                  	
+                </div>
+	
+		</div>
+		<!--슬라이드1-->
+
+		<!--슬라이드2-->
+		<div class="item"> 
+			 <div class="row" style="background:#337ab7; width:1010px; margin-left:-5px;">
+                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                                <div class="box-part text-center" style="width:320px; height:180px;">
+                                   <img src="https://job.alio.go.kr/images/common/img_t_logo.gif">
+                                 
+                                    <h4>공공기관채용정보시스템</h4>
+                                    
+                                   
+                                  
+                                </div>
+                            </div>	
+                        
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                                <div class="box-part text-center" style="width:320px; height:180px;">
+                                    <img src="https://www.work.go.kr/static/images/common/bg/bg-top-logo.png">
+                                    
+                                            <h4>워크넷</h4>
+                                  
+                                </div>
+                            </div>	 
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                                <div class="box-part text-center" style="width:305px; height:180px;">
+                                    <img src="https://www.career.go.kr/webres/images/common/logo.png">
+                                   
+                                            <h4>진로정보망커리어넷</h4>
+                                  
+                                    
+                                </div>
+                            </div>	 
+                                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                                <div class="box-part text-center" style="width:320px; height:180px;">
+                                    <img src="http://image.career.co.kr/career_new4/gnb/img_header_logo_new.png">
+                                   
+                                            <h4>커리어</h4>
+                           
+                                </div>
+                            </div>	
+                            
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                                <div class="box-part text-center" style="width:320px; height:180px;">
+                                    <img src=" http://www.keis.or.kr/site/main/images/common/logo.png">
+                                   
+                                            <h4>한국고용정보원</h4>
+                           
+                                   
+                                </div>
+                            </div>	
+                         
+                            
+                        
+                            
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding:0px 0px;">
+                           
+                                                <div class="box-part text-center" style="width:305px; height:180px;">
+                                                     <img src=" http://www.hrd.go.kr/images/logo.png">
+                                                  
+                                                
+                                                  
+                                                        <h4>직업훈련포털</h4>
+                                                
+                                        
+                                                    
+                                                 </div>
+                                            </div>	
+                         
+                            
+                                   
+                              
+
+                    
+                  	
+                </div>
+                
+	
+		</div>
+        <br><br>
+		<!--슬라이드2-->
+		
+
+	</div>
+	
+	<!--이전, 다음 버튼-->
+	<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> 
+	<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> 
 </div>
+                
+
+               
+            </div>
+                                   
+                                      
+                               
+            
+                               
+   
+
+  
+         </div>
+    </div>
     <script type="text/javascript">
+        
         (function($){
   
   var lnbUI = {

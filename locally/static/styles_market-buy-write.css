@@ -1,0 +1,24 @@
+ .myButton {
+        background-color:#3379b7;
+	    display:inline-block;
+	    cursor:pointer;
+	    color:#ffffff;
+	    font-family:Arial;
+	    font-size:13px;
+	    padding:12px 22px;
+	    text-decoration:none;
+        float: right;
+        margin:10px;
+    }
+    .myButton:hover {
+    	background-color:#185f9e;
+        color:#ffffff;
+    }
+    .myButton:active {
+    	position:relative;
+        top:1px;
+    }
+    p {
+        font-size:30px; 
+        color:#337ab7;
+    }

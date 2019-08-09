@@ -1,0 +1,93 @@
+@font-face {
+      font-family: 'SDKukdetopokki';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDKukdetopokki.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      background-color : #337ab7;
+      font-size: 62.5%;
+      color: white;
+      font-family: SDKukdetopokki;
+    }
+
+    .container {
+      padding: 2em;
+    }
+
+    /* GENERAL BUTTON STYLING */
+    button,
+    button::after {
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+
+    button {
+      background: none;
+      border: 3px solid #fff;
+      border-radius: 5px;
+      color: #fff;
+      display: block;
+      font-size: 1.6em;
+      font-weight: bold;
+      margin: 1em auto;
+      padding: 2em 6em;
+      position: relative;
+      text-transform: uppercase;
+      margin-right: 20px;
+      font-family: BMDOHYEON;
+    }
+
+    button::before,
+    button::after {
+      background: #fff;
+      content: '';
+      position: absolute;
+      z-index: -1;
+    }
+
+    button:hover {
+      color: #337ab7;
+    }
+
+    /* BUTTON 3 */
+    .btn-3::after {
+      height: 0;
+      left: 50%;
+      top: 50%;
+      width: 0;
+
+    }
+
+    .btn-3:hover:after {
+      height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    /* BUTTON 4 */
+    .btn-4::before {
+      height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    .btn-4::after {
+      background-color: #337ab7;
+      height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    .btn-4:hover:after {
+      height: 0;
+      left: 50%;
+      top: 50%;
+      width: 0;
+    }

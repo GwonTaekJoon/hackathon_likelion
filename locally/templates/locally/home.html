@@ -13,6 +13,17 @@
 </head>
 <body>
     <div class="bg-text">
+        <script>
+			var end = "LOCALLY";
+			d3.select('.target').transition().duration(1500)
+			  .tween("text", function() {
+				var i = d3.interpolateNumber(0, end.length);
+				return function(t) {
+					var idx = Math.round(i(t));
+					this.textContent = end.substr(0, idx);
+				};
+			  });
+		</script>
         <h1>Locally</h1>
         <p>가까이에, 근처에</p>
     </div>

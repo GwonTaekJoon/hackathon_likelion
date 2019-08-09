@@ -1,346 +1,347 @@
 {%extends './base.html'%}
-
 {%block contents%}
-
-
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="kr">
 <head>
     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+    <meta charset="UTF-8">
+    
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=iqxkmnnwn8"></script>
     <link rel="stylesheet" href="{% static 'styles_site.css'%}">
-    <style>
-    @import url(https://fonts.googleapis.com/css?family=Varela+Round);
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+	<meta charset="utf-8">
+	<title>Photobox - CSS3 image gallery modal viewer</title>
+	<meta name="viewport" content="width=device-width">
 
-.slides {
-    padding: 0;
-    width: 609px;
-    height: 420px;
-    display: block;
-    margin: 0 auto;
-    position: relative;
+	<link rel="stylesheet" href="/SRC2/photobox/styles.css">
+	<link rel="stylesheet" href="/SRC2/photobox/photobox/photobox.css">
+	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src='/SRC2/photobox/photobox/jquery.photobox.js'></script>
+    
+    <style type="text/css">
+        form {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+}
+.d1 input {
+  width: 100%;
+  height: 42px;
+  padding-left: 10px;
+  border: 2px solid #337ab7;
+  border-radius: 5px;
+  outline: none;
+  background: #fff;
+  color: #9E9C9C;
+}
+.d1 button {
+  position: absolute; 
+  top: 0;
+  right: 0px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: #337ab7;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.d1 button:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: #F9F0DA;
+}
+section {
+   min-height: 100%;
+background-size: cover;
+background-position-y: center;
+    
 }
 
-.slides * {
-    user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
+        section h1{
+            color : white;
+        }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.5em;
 }
-
-.slides input { display: none; }
-
-.slide-container { display: block; }
-
-.slide {
-    top: 0;
-    opacity: 0;
-    width: 609px;
-    height: 420px;
-    overflow: hidden;
-    display: flex;
-    position:absolute;
-    transform: scale(0);
-
-    transition: all .7s ease-in-out;
+#temperature {
+    color: #337ab7;
+    text-decoration: none;
+    border-bottom: 0.05em dotted white;
 }
-
-.slide img {
-    width: 100%;
-    height: 100%;
-}
-
-.nav label {
-    width: 200px;
-    height: 100%;
-    display: none;
+#clock {
+    height: 100px;
+    width: 300px;
     position: absolute;
 
-      opacity: 0;
-    z-index: 9;
-    cursor: pointer;
-
-    transition: opacity .2s;
-
-    color: #FFF;
-    font-size: 156pt;
-    text-align: center;
-    line-height: 380px;
-    font-family: "Varela Round", sans-serif;
-    background-color: rgba(255, 255, 255, .3);
-    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+    color: #337ab7;
+    font-size: 30px;
 }
-
-.slide:hover + .nav label { opacity: 0.5; }
-
-.nav label:hover { opacity: 1; }
-
-.nav .next { right: 0; }
-
-input:checked + .slide-container  .slide {
-    opacity: 1;
-
-    transform: scale(1);
-
-    transition: opacity 1s ease-in-out;
-}
-
-input:checked + .slide-container .nav label { display: block; }
-
-.nav-dots {
-    width: 100%;
-    bottom: 9px;
-    height: 11px;
-    display: block;
-    position: absolute;
-    text-align: center;
-}
-
-.nav-dots .nav-dot {
-    top: -5px;
-    width: 11px;
-    height: 11px;
-    margin: 0 4px;
-    position: relative;
-    border-radius: 100%;
-    display: inline-block;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.nav-dots .nav-dot:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-input#img-1:checked ~ .nav-dots label#img-dot-1,
-input#img-2:checked ~ .nav-dots label#img-dot-2,
-input#img-3:checked ~ .nav-dots label#img-dot-3,
-input#img-4:checked ~ .nav-dots label#img-dot-4,
-input#img-5:checked ~ .nav-dots label#img-dot-5,
-input#img-6:checked ~ .nav-dots label#img-dot-6 {
-    background: rgba(0, 0, 0, 0.8);
-}</style>
+        
+</style>
 </head>
+
+ 
 <body>
     <div class="nav1">
         <a href="{% url 'choice'%}"><p class="title" >locally</p></a> <a href="{% url 'site'%}"><p class="title">서울</p></a>
-        <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="{%url 'register'%}"  class="title2"><p>회원가입</p></a> 
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}" class="title2"><p>로그아웃</p></a> <p class="title2">{{user.username}}님이 로그인중</p>
+        {% else %}
+            <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="{%url 'register'%}"  class="title2"><p>회원가입</p></a>
+        {% endif %}
     </div>
-<form action="{% url 'ten'%}" method="post"> {% csrf_token %}
-    {{ form.as_p }}
-    <input type="text">
-    <input type="submit">
-</form>
-{% if object_list %}
+       <div class="d1">
+  <form>
+  <input type="text" placeholder="검색어 입력">
+  <button type="submit"></button>
+            </form><br>
+            
+        </div>
+    <br>
+    <div class="nav2">
+            <a href="{% url 'schedule'%}" class="title3"> 일정</a>
+            <a href="{% url 'wish'%}" class="title3">바란다</a>
+            <a href="{% url 'market' %}" class="title3">장터</a>
+            <a href="{% url 'job' %}" class="title3">취업</a>
+            <a href="{% url 'guide' %}" class="title3">이용안내</a>
+    </div>
+    <br>
+    {% if object_list %}
     {% for post in object_list %}
     {<a href="{{post.get_absolute_url}}">{{post.title }}</a>
     {% endfor %}
     {% elif wearch_word %}
     Search Word {{ search_word }} Not Found!
     {% endif %}
+    <div class="wrap">
+        
+     
+        <a href="{%url 'ten'%}" class="button">10대</a>
+        <a href="{%url 'twenty'%}" class="button">20대</a>
+        <a href="{%url 'thirty'%}" class="button">30대</a>
+        <a href="{%url 'forty'%}" class="button">40대</a>
+        <a href="{%url 'fifty'%}" class="button">50대</a>
+    </div>
+    <div class="container"> 
     
 
+        
 
-    <hr class="nav-bottombar">
-
-    <div class="wrap">
-            <a href="{%url 'ten'%}" class="button">10대</a>
-            <a href="#" class="button">20대</a>
-            <a href="#" class="button">30대</a>
-            <a href="#" class="button">40대</a>
-            <a href="#" class="button">50대</a>
-    </div>
-    <div class="container">
-        <div id="map" style="width:20%;height:200px;"></div>
-            <script >
-            var mapOptions = {
-                
-                center: new naver.maps.LatLng(37.5658302,126.9778917),
-                zoom: 10};
-            var map = new naver.maps.Map('map', mapOptions);
-            </script>
-            <br>
-            
-<div class="row">
-    <div class="col-md-4">
-                                <ul>
-                                    <h4>베스트 게시글</h4>
-                                    <hr>
-                                    <br>
-                                    <li>
-                                        <p>첫 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>두 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>세 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>네 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>다섯 번째 글</p>
-                                    </li>
-                                </ul>
-</div>
-               
-<div class="col-md-8">
-    <ul class="slides">
-    <input type="radio" name="radio-btn" id="img-1" checked />
-    <li class="slide-container">
-        <div class="slide">
-            <img src="https://news.seoul.go.kr/culture/files/2019/07/image1.jpg" />
-        </div>
-        <div class="nav">
-            <label for="img-6" class="prev">&#x2039;</label>
-            <label for="img-2" class="next">&#x203a;</label>
-        </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-2" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="https://www.culture.go.kr/upload/rdf/19/06/rdf_201906132054582919.jpg" />
-        </div>
-        <div class="nav">
-            <label for="img-1" class="prev">&#x2039;</label>
-            <label for="img-3" class="next">&#x203a;</label>
-        </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-3" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="https://news.seoul.go.kr/env/files/2019/06/5d071b20bb29b0.96254913.jpg" />
-        </div>
-        <div class="nav">
-            <label for="img-2" class="prev">&#x2039;</label>
-            <label for="img-4" class="next">&#x203a;</label>
-        </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-4" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="https://news.seoul.go.kr/economy/files/2019/07/5d23e59d6e3153.24403012.jpg" />
-        </div>
-        <div class="nav">
-            <label for="img-3" class="prev">&#x2039;</label>
-            <label for="img-5" class="next">&#x203a;</label>
-        </div>
-    </li>
-
-
-    <li class="nav-dots">
-      <label for="img-1" class="nav-dot" id="img-dot-1"></label>
-      <label for="img-2" class="nav-dot" id="img-dot-2"></label>
-      <label for="img-3" class="nav-dot" id="img-dot-3"></label>
-    <label for="img-4" class="nav-dot" id="img-dot-4"></label>
-    </li>
-</ul>
-</div>
-
-</div>
-<br>
-        <h2>게시판 글 목록</h2>
-        <div class="row">
-            <div class="col-md-3">
-                                    <ul><br>
-                                    <h4>일정</h4><hr>
-                                    <li>
-                                        <p>첫 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>두 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>세 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>네 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>다섯 번째 글</p>
-                                    </li>
-                                    <a class="btn btn-primary" href="{%url 'schedule'%}">더보기</a><br>
-                                        </div>
-                                    </ul>
-                            <div class="col-md-3">
-                                    <ul><br>
-                                    <h4>바란다</h4><hr>
-                                    <li>
-                                        <p>첫 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>두 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>세 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>네 번째 글</p>
-                                    </li>
-                                    <li>
-                                        <p>다섯 번째 글</p>
-                                    </li>
-                                    <a class="btn btn-primary" href="{%url 'wish'%}">더보기</a><br>
-                                        </div>
-                                    </ul>
-                                    <div class="col-md-3">
-                                            <ul><br>
-                                            <h4>장터</h4><hr>
-                                            <li>
-                                                <p>첫 번째 글</p>
-                                            </li>
-                                            <li>
-                                                <p>두 번째 글</p>
-                                            </li>
-                                            <li>
-                                                <p>세 번째 글</p>
-                                            </li>
-                                            <li>
-                                                <p>네 번째 글</p>
-                                            </li>
-                                            <li>
-                                                <p>다섯 번째 글</p>
-                                            </li>
-                                            <a class="btn btn-primary" href="{%url 'market'%}">더보기</a><br>
-                                            </ul>
-                                        </div>
-                                    <div class="col-md-3">
-                                            <ul><br>
-                                            <h4>취업</h4><hr>
-                                            <li>
-                                                <p>첫 번째 글</p>
-                                            </li>
-                                            <li>
-                                                <p>두 번째 글</p>
-                                            </li>
-                                            <li>
-                                                <p>세 번째 글</p>
-                                            </li>
-                                            <li>
-                                                <p>네 번째 글</p>
-                                            </li>
-                                            <li>
-                                                <p>다섯 번째 글</p>
-                                            </li>
-                                            <a class="btn btn-primary" href="{%url 'job'%}">더보기</a><br>
-                                            </ul>
-                                        </div>
-        </div>
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div id="map" style="width:100%;height:210px;"></div>
+                <script>
+                var mapOptions = {
+                    center: new naver.maps.LatLng(37.5658302,126.9778917),
+                    zoom: 10 };
+                var map = new naver.maps.Map('map', mapOptions);
+                </script>
             </div>
+            <div class="col-md-4">
+                <h1 style="font-size:20px; color:#337ab7;">
+                    서울특별시 시간
+                </h1>
+                <div id="clock"></div>
+                <ul>
+                    <li class="active" style="display: none;">Seoul</li>
+                </ul>
+            </div>
+            <section id="weather-section" class='py-3'>
+                <h3 id= "city" style="font-size:20px; color:#fff; height:100px; ">서울특별시 날씨</h1>
+                <p style="color:#fff"> <a id="temperature" href="#" onclick="switchUnits(); return false;" title ="클릭 시 온도 단위가 바뀝니다."></a><span id = "weather"> by Shazam (tutorial from @fourtonfish)</p>
+            </section>
+        </div>
+        <br>
+        <div class="row"> 
+          
+            <div class="col-md-2"><a href="http://news.seoul.go.kr/citybuild/" onclick="action_logging({tr_code:'section_citybuild'});" ><img class="siteicon" src="{% static 'img/home.png' %}" style="display:inline-block; height:50px;" class="seoulcity" ></a><p style="margin-left:10px;">주택</p></div>
+            <div class="col-md-2"><a href="http://news.seoul.go.kr/economy/" onclick="action_logging({tr_code:'section_economy'});" ><img class="siteicon" src="{% static 'img/economy.png' %}" style="display:inline-block; height:50px;" class="seoulcity"></a><p style="margin-left:10px;">경제</p></div>
+            <div class="col-md-2"><a href="http://news.seoul.go.kr/env/" onclick="action_logging({tr_code:'section_env'});" ><img class="siteicon" src="{% static 'img/environment.png' %}" style="display:inline-block; height:50px;" class="seoulcity"></a><p style="margin-left:10px;">환경</p></div>
+            <div class="col-md-2"><a href="http://news.seoul.go.kr/safe/" onclick="action_logging({tr_code:'section_safe'});" ><img class="siteicon" src="{% static 'img/safety.png' %}" style="display:inline-block; height:50px;" class="seoulcity"></a><p>안전</p></div>
+            <div class="col-md-2"><a href="http://news.seoul.go.kr/culture/" onclick="action_logging({tr_code:'section_culture'});" ><img class="siteicon" src="{% static 'img/culture.png' %}" style="display:inline-block; height:50px;" class="seoulcity"></a><p style="margin-left:10px;">문화</p></div>
+            <div class="col-md-2"><a href="http://news.seoul.go.kr/gov/" 			onclick="action_logging({tr_code:'section_gov'});" ><img class="siteicon" src="{% static 'img/admin.png' %}" style="display:inline-block; height:50px;" class="seoulcity"></a><p style="margin-left:10px;">행정</p></div>
+       
+                </div>
+        <table border=0>
+        <td>
+            <div class="fb-con" style="width:250px;">
+                <div id="fb-root"></div>
+                <div class="fb-page" data-href="https://www.facebook.com/seoulnpocenter" data-tabs="timeline" data-width="303px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/seoulnpocenter" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/seoulnpocenter">서울시청</a></blockquote></div>
+                <script>
+                $(document).ready(function(){
+                    (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.1&appId=932300826956410&autoLogAppEvents=1';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    } (document, 'script', 'facebook-jssdk'));
+                });
+                </script>
+            </div>
+        </td>
+        <td>
+        <div class="fb-con" style="width:250px;">
+<div id="fb-root"></div>
+  <div class="fb-page" data-href="https://www.facebook.com/seoul.kr" data-tabs="timeline" data-width="303px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/seoul.kr" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/seoul.kr/">서울시청</a></blockquote></div>
+<script>
+  $(document).ready(function(){
+    (function(d, s, id) {
+    
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.1&appId=932300826956410&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  });
+</script>
+</div>
+</div>
+        </td>
+        <td>
+             <div class="col-md-8">
+                <ul class="slides">
+                    <input type="radio" name="radio-btn" id="img-1" checked />
+                    <li class="slide-container">
+                        <div class="slide">
+                            <img src="https://news.seoul.go.kr/culture/files/2019/07/image1.jpg" />
+                        </div>
+                        <div class="nav">
+                            <label for="img-6" class="prev">&#x2039;</label>
+                            <label for="img-2" class="next">&#x203a;</label>
+                        </div>
+                    </li>
+                <input type="radio" name="radio-btn" id="img-2" />
+                <li class="slide-container">
+                    <div class="slide">
+                        <img src="https://www.culture.go.kr/upload/rdf/19/06/rdf_201906132054582919.jpg" />
+                    </div>
+                    <div class="nav">
+                        <label for="img-1" class="prev">&#x2039;</label>
+                        <label for="img-3" class="next">&#x203a;</label>
+                    </div>
+                </li>
+                <input type="radio" name="radio-btn" id="img-3" />
+                <li class="slide-container">
+                    <div class="slide">
+                        <img src="https://news.seoul.go.kr/env/files/2019/06/5d071b20bb29b0.96254913.jpg" />
+                    </div>
+                    <div class="nav">
+                        <label for="img-2" class="prev">&#x2039;</label>
+                        <label for="img-4" class="next">&#x203a;</label>
+                    </div>
+                </li>
+                <input type="radio" name="radio-btn" id="img-4" />
+                <li class="slide-container">
+                    <div class="slide">
+                        <img src="https://news.seoul.go.kr/economy/files/2019/07/5d23e59d6e3153.24403012.jpg" />
+                    </div>
+                    <div class="nav">
+                        <label for="img-3" class="prev">&#x2039;</label>
+                        <label for="img-5" class="next">&#x203a;</label>
+                    </div>
+                </li>
+                <li class="nav-dots">
+                    <label for="img-1" class="nav-dot" id="img-dot-1"></label>
+                    <label for="img-2" class="nav-dot" id="img-dot-2"></label>
+                    <label for="img-3" class="nav-dot" id="img-dot-3"></label>
+                    <label for="img-4" class="nav-dot" id="img-dot-4"></label>
+                </li>
                     
+                </ul>
+            </div>
+        </td>
+    </table>
+   
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            <ul>
+                <br>
+                <h4>일정</h4><hr>
+                <li>
+                    <p>서울상상산업포럼 2019</p>
+                </li>
+                <li>
+                    <p>2019 서울 무궁화축제<역사의 외침, 꽃의 함성> 개최</p>
+                </li>
+                <li>
+                    <p>2019년 한강야경투어(상반기) 참여자 모집</p>
+                </li>
+                <li>
+                    <p>한국근현대명화전 《근대의 꿈: 꽃나무는 심어 놓고》</p>
+                </li>
+                <li>
+                    <p>역사문화 생태산책</p>
+                </li>
+                <a class="btn btn-primary" href="{%url 'schedule'%}">더보기</a><br>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <ul><br>
+                <h4>바란다</h4><hr>{% for Wish in wish_list%}
+                <li>
+                    <p>{{Wish.title}}</p>
+                </li>
+                {% endfor %}
+                <a class="btn btn-primary" href="{%url 'wish'%}"> 더보기 </a><br>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <ul><br>
+                <h4>장터</h4><hr>
+                {%for buy in buys%}
+                <li><p>{{buy.title}}</p></li>
+                {% endfor %}
+                <a class="btn btn-primary" href="{%url 'market'%}">더보기</a><br>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <ul><br>
+                <h4>취업</h4><hr>
+                {% for apply in applys%}
+                <li><p>{{apply.title}}</p></li>
+                {% endfor %}
+                <a class="btn btn-primary" href="{%url 'job'%}">더보기</a><br>
+            </ul>
+        </div>
+    </div>
+</div>
+ 
+
+
+ 
+                        
+    
+ <hr>
+     <p>@멋쟁이 사자처럼 at 삼육대학교
+         
+    </p> <br>
+    <p>
+        <개발: 권택준 정서영 전유림 정현주 김동혜></p><br>
+      <p><서울특별시 노원구 화랑로 815 삼육대학교> </p>
+          <img src="{ % static 'img/code.jpeg' % }">
+          
+     
 
 
 
 
-{%endblock%}
 
-
+          
+          
+          
+          
       <!-- Initialize Swiper -->
       <script type="text/javascript">
         var swiper = new Swiper('.swiper-container', {
@@ -353,8 +354,240 @@ input#img-6:checked ~ .nav-dots label#img-dot-6 {
             prevEl: '.swiper-button-prev',
           },
         });
+          
+          // finally, initialize photobox on all retrieved images
+		$('#gallery').photobox('a', { thumbs:true, loop:false }, callback);
+		// using setTimeout to make sure all images were in the DOM, before the history.load() function is looking them up to match the url hash
+		setTimeout(window._photobox.history.load, 2000);
+		function callback(){
+			console.log('callback for loaded content:', this);
+		};	
+          
+          
+          
+          
+          
+window.weatherData = {
+    city: document.querySelector ("#city"),
+  weather: document.querySelector ("#weather"),
+  temperature: document.querySelector("#temperature"),
+  temperatureValue: 0,
+  units: "°C"
+};
+
+function roundTemperature(temperature){
+			temperature = temperature.toFixed(1);
+			return temperature;
+		}
+
+function switchUnits (){
+  
+  if (window.weatherData.units == "°C") {
+    window.weatherData.temperatureValue = roundTemperature(window.weatherData.temperatureValue * 9/5 + 32);
+    window.weatherData.units = "°F";
+  
+} else {
+  window.weatherData.temperatureValue = roundTemperature ((window.weatherData.temperatureValue -32) * 5/9);
+    window.weatherData.units = "°C";  
+}
+
+  window.weatherData.temperature.innerHTML = window.weatherData.temperatureValue + window.weatherData.units + " ";
+}
+
+          
+  function jsonFlickrApi(data){
+      console.log('called');
+  if (data.photos.pages > 0){
+    //var randomPhotoId = parseInt(data.photos.total);
+    var photo = data.photos.photo[Math.floor(Math.random()*parseInt(data.photos.photo.length))];
+      
+      console.log(photo.url_l);
+      console.log(photo);
+      $('#weather-section')
+      .css({
+          'background-image' : 'url("'+ photo.url_l +'")'
+      })
+      
+    document.querySelector("body").style.backgroundImage = "url('" + photo.url_l + "')";
+    document.querySelector("#image-source").setAttribute("href", "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id);
+  }
+  else{
+      console.log('err');
+    document.querySelector("body").style.backgroundImage = "url('https://fourtonfish.com/tutorials/weather-web-app/images/default.jpg')";
+    document.querySelector("#image-source").setAttribute("href", "https://www.flickr.com/photos/superfamous/310185523/sizes/o/");
+  }
+}
+function getLocationAndWeather(){
+    window.weatherData = {
+  weather: document.querySelector ("#weather"),
+  temperature: document.querySelector("#temperature"),
+  temperatureValue: 0,
+  units: "°C"
+};
+    
+  if (window.XMLHttpRequest){
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener("load", function() {
+      var response = JSON.parse(xhr.responseText);
+
+      // console.log(response);
+        var ret_text = response.weather.simple + " | " + response.weather.description + " | " + response.weather.temperature + " 'C";
+        // console.log(ret_text);
+        $('#weather').text(ret_text);
+        
+       var position = {
+         latitude: response.latitude,
+         longitude: response.longitude
+       };
+//       var cityName = response.city;
+
+       var weatherSimpleDescription = response.weather.simple;
+//       var weatherDescription = response.weather.description;
+//       var weatherTemperature = roundTemperature(response.weather.temperature);
+    
+        
+//         window.weatherData.temperatureValue = weatherTemperature;
+
+      loadBackground(position.latitude, position.longitude, weatherSimpleDescription);
+// weatherData.city.innerHTML = cityName;
+//       window.weatherData.weather.innerHTML =  ", " + weatherDescription;
+//       window.weatherData.temperature.innerHTML = weatherTemperature + window.weatherData.units;
+    }, false);
+
+    xhr.addEventListener("error", function(err){
+      alert("Could not complete the request");
+    }, false);
+
+    xhr.open("GET", "https://fourtonfish.com/tutorials/weather-web-app/getlocationandweather.php?owapikey=e2db5b0453a25a492e87ad8b03046a7c&units=metric", true);
+    xhr.send();
+  }
+  else{
+    alert("Unable to fetch the location and weather data.");
+  }           
+}
+
+
+function loadBackground(lat, lon, weatherTag) {
+  var script_element = document.createElement('script');
+
+  script_element.src = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1452866c8cea54acd0075022ef573a07&lat=" + lat + "&lon=" + lon + "&accuracy=1&tags=" + weatherTag + "&sort=relevance&extras=url_l&format=json";
+  
+  document.getElementsByTagName('head')[0].appendChild(script_element);
+}
+
+
+
+getLocationAndWeather();
       </script>
 
-</body>
-</html>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<script type="text/javascript">
+$(document).ready(function () {
+    getLocationAndWeather();
+    
+    function displayTime() {
+        var currentTime = new Date();
+        
+        // Time difference between UTC and GTC
+        var timeDifference = currentTime.getTimezoneOffset()/60;
+        
+        // Set hours to GTC ( UTC - time difference)
+        var hours = currentTime.getHours() + timeDifference;
+        
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        
+        // This adds and substracts time from the GTC deppending on the active option
+        if ($(".active").text() === "Venezuela") {
+            hours = hours - 4;
+            if (minutes > 30) {
+                minutes = minutes - 30;
+            }
+            else {
+                hours = hours - 1;
+                minutes = minutes + 30;
+            }
+        }
+ 
+          if ($(".active").text() === "Seoul") {
+            hours = hours + 9;
+            $("body").css("background", "linear-gradient(to left, #fff, #fff)");
+        }
 
+        
+        if (hours > 24) {
+            hours = hours - 24;
+        }
+        
+        if (hours < 0) {
+            hours = hours + 24;
+        }
+
+        // Let's set the AM and PM meridiem and 
+        // 12-hour format
+        var meridiem = "AM"; // Default is AM
+        
+        // Convert from 24 hour to 12 hour format
+        // and keep track of the meridiem.
+        if (hours >= 12) {
+            hours = hours - 12;
+            meridiem = "PM";
+        }
+
+        // 0 AM and 0 PM should read as 12
+        if (hours === 0) {
+            hours = 12;
+        }
+
+        // If the seconds digit is less than ten                    
+        if (seconds < 10) {
+            // Add the "0" digit to the front
+            // so 9 becomes "09"
+            seconds = "0" + seconds;
+        }
+        // If the minute digit is less than ten                    
+        if (minutes < 10) {
+            // Add the "0" digit to the front
+            // so 9 becomes "09"
+            minutes = "0" + minutes;
+        }
+        // If the hour digit is less than ten                    
+        if (hours < 10) {
+            // Add the "0" digit to the front
+            // so 9 becomes "09"
+            hours = "0" + hours;
+        }
+
+        // This gets a "handle" to the clock div in our HTML
+        var clockDiv = document.getElementById('clock');
+
+        // Then we set the text inside the clock div
+        // to the hours, minutes, and seconds of the current time
+        clockDiv.innerText = hours + ":" + minutes + ":" + seconds + " " + meridiem;
+    }
+    
+    // This Selects the button clicked and change its class to '.active'
+    $("li").click(function() {
+        // Removes the active class form the other list items
+        $("li").removeClass("active");
+        // Ads the active class to the clicked list item
+        $(this).addClass("active");
+    });
+
+    // This runs the displayTime function the first time
+    displayTime();
+
+    // This makes our clock 'tick' by repeatedly
+    // running the displayTime function every second.
+    setInterval(displayTime, 500);
+});
+    
+</script>
+
+  
+</body>
+    
+
+   
+</html>
+{% endblock %} 

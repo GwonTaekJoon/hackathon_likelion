@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 {% load staticfiles %}
 <html>
@@ -158,6 +160,7 @@
     }
     .wrap{
      text-align: center;
+         font-size:15px;
     }
     a.button:hover {
       color: rgba(255, 255, 255, 0.85);
@@ -169,50 +172,71 @@
     .event{
       float:left;
     }
-    .sizeup{
-        width:2000px;
-    }
 </style>
 </head>
 <body>
-    <div class="nav1">
-        <p class="title" >locally</p> <p class="title">서울</p>
-        <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="register"  class="title2"><p>회원가입</p></a> 
+  <div class="nav1">
+        <a href="{% url 'choice'%}"><p class="title" >locally</p></a> <a href="{% url 'site'%}"><p class="title">서울</p></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}" class="title2"><p>로그아웃</p></a> <p class="title2">{{user.username}}님이 로그인중</p>
+        {% else %}
+            <a href="{% url 'login'%}" class="title2"><p>로그인</p></a> <a href="{%url 'register'%}"  class="title2"><p>회원가입</p></a>
+        {% endif %}
     </div>
     <div class="nav2">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url 'schedule'%}" class="title3"> 일정</a>
             <a href="{% url 'wish'%}" class="title3">바란다</a>
-            <a href="{% url 'market'%}" class="title3">장터</a>
-            <a href="{% url 'job'%}" class="title3">취업</a>
-            <a href="{% url 'guide'%}" class="title3">이용안내</a>
+            <a href="{% url 'market' %}" class="title3">장터</a>
+            <a href="{% url 'job' %}" class="title3">취업</a>
+            <a href="{% url 'guide' %}" class="title3">이용안내</a>
     </div>
     <div class="wrap">
-            <a href="#" class="button">10대</a>
-            <a href="#" class="button">20대</a>
-            <a href="#" class="button">30대</a>
-            <a href="#" class="button">40대</a>
-            <a href="#" class="button">50대</a>
+        
+     
+        <a href="{%url 'ten'%}" class="button">10대</a>
+        <a href="{%url 'twenty'%}" class="button">20대</a>
+        <a href="{%url 'thirty'%}" class="button">30대</a>
+        <a href="{%url 'forty'%}" class="button">40대</a>
+        <a href="{%url 'fifty'%}" class="button">50대</a>
     </div>
-    <div id="lnb" class="ab">
+    <div class="row">
+        <div class="col-md-2">
+         <div id="lnb" class="ab">
         <h1>행사일정</h1>
         <ul>
-            <li><a href="#none">문화행사</a></li>
-            <li><a href="{% url 'schedulebokji'%}">복지행사</a></li>
+            <li><a href="{% url 'schedule'%}" style="text-align:center">문화행사</a></li>
+            <li><a href="{% url 'schedulebokji'%}" style="text-align:center">복지행사</a></li>
         </ul>
-    </div>
-    <div class="cont">
-    <div class="container">
+    </div>   
+        </div>
+         
+    <div class="col-md-10">
+            <blockquote style="width:1000px;">
+                <p>문화행사</p>
+                <h5 class="text-right">
+                    🏠Home
+                    <span>&gt;</span>일정
+                    <span>&gt;</span>문화행사
+                </h5>
+    </blockquote>
+        
+        
+        
     <div class="ab"> 
-        <br><p>문화행사</p><br>
-        <hr class="my-hr"><br><br><br>
+   
+      <br><br>
         <div class="sizeup">
+           
+            
+            
+            
+            
             <div class="row mb-2">
-             <div class="col-md-6">
+             <div class="col-12" style="width:100px;">
                  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                     <div class="col p-4 d-flex flex-column position-static">
+                     <div class="col-6 p-4 d-flex flex-column position-static">
                          <strong class="d-inline-block mb-2 text-primary">경제</strong>
-                         <h3 class="mb-0">서울상상산업포럼 2019</h3>
+                         <a href="{% url 'schedule_1' %}" style="max-width:1000px; text-decoration:none; margin:0px;"> <h3 class="mb-0">서울상상산업포럼 2019</h3></a>
                          <div class="mb-1 text-muted">Nov 12</div>
                          
                          <h4>서울상상산업포럼은 만화, 웹툰, 애니메이션, 게임, 1인미디어, VR/AR 및 뉴미디어와 같은 다양한 분야의 융합으로 급성장하고 있는 상상산업의 현재와 미래 전망을 보여주는 행사입니다.</h4>
@@ -224,29 +248,31 @@
              </div>
             </div>
             
+
              <div class="row mb-2">
-             <div class="col-md-6">
+             <div class="col-12">
                  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                     <div class="col p-4 d-flex flex-column position-static">
-                         <strong class="d-inline-block mb-2 text-primary">문화</strong>
-                         <h3 class="mb-0">[북촌문화센터] 7월의 북촌문화요일 운영 안내</h3>
+                     <div class="col-6 p-4 d-flex flex-column position-static">
+                         <strong class="d-inline-block mb-2 text-primary">경제</strong>
+                         <a href="{% url 'schedule_4' %}" style="max-width:1000px; text-decoration:none; margin:0px;"><h3 class="mb-0">2019 서울 무궁화축제<역사의 외침, 꽃의 함성> 개최</h3></a>
                          <div class="mb-1 text-muted">Nov 12</div>
                          
-                         <h4>[북촌문화센터] 7월의 북촌문화요일 운영 안내</h4>
+                         <h4>3.1운동과 대한민국임시정부수립 100주년을 맞이하여 서울 무궁화축제 개최</h4>
                      </div>
                      <div class="col-auto d-none d-lg-block" >
-                         <img src="https://news.seoul.go.kr/culture/files/2019/07/image1.jpg" width="550" height="250"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+                         <img src="http://news.seoul.go.kr/economy/files/2019/08/5d46839e79e938.31260194.jpg" width="550" height="250"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
                      </div>
                  </div>
              </div>
             </div>
-            
-            <div class="row mb-2">
-             <div class="col-md-6">
+                 
+               
+            <div class="row">
+             <div class="col-12">
                  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                     <div class="col p-4 d-flex flex-column position-static">
+                     <div class="col-6 p-4 d-flex flex-column position-static">
                          <strong class="d-inline-block mb-2 text-primary">환경</strong>
-                         <h3 class="mb-0">2019년 한강야경투어(상반기) 참여자 모집</h3>
+                         <a href="{% url 'schedule_2' %}" style="max-width:1000px; text-decoration:none; margin:0px;"><h3 class="mb-0">2019년 한강야경투어(상반기) 참여자 모집</h3></a>
                          <div class="mb-1 text-muted">Nov 12</div>
                          
                          <h4>반포한강공원 일대의 야경 명소를 해설사와 함께 오감으로 체험하는 한강 야경 투어 6.28~7.26까지 운영을 시작합니다. 낮에는 숨겨져 있는 한강의 반전매력이 궁금하신 분들은 한강으로 놀러오세요!</h4>
@@ -257,17 +283,16 @@
                  </div>
              </div>
             </div>
-            
-            
+               
                  <div class="row mb-2">
-             <div class="col-md-6">
+             <div class="col-12">
                  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                     <div class="col p-4 d-flex flex-column position-static">
+                     <div class="col-6 p-4 d-flex flex-column position-static">
                          <strong class="d-inline-block mb-2 text-primary">문화</strong>
-                         <h3 class="mb-0">한국근현대명화전 《근대의 꿈: 꽃나무는 심어 놓고》</h3>
+                         <a href="{% url 'schedule_3' %}" style="max-width:1000px; text-decoration:none; margin:0px;"><h3 class="mb-0">한국근현대명화전 《근대의 꿈: 꽃나무는 심어 놓고》</h3></a>
                          <div class="mb-1 text-muted">Nov 12</div>
                          
-                         <h4>한국근현대명화전 《근대의 꿈: 꽃나무는 심어 놓고》/2019.7.2.(화) - 9.15.(일)/서울시립 북서울미술관 2층(전시실2, 프로젝트갤러리2)</h4>
+                         <h4>한국근현대명화전 《근대의 꿈:꽃나무는 심어 놓고》/2019.7.2.(화) - 9.15.(일)/서울시립 북서울미술관 2층(전시실2, 프로젝트갤러리2)</h4>
                      </div>
                      <div class="col-auto d-none d-lg-block" >
                          <img src="http://news.seoul.go.kr/culture/files/2019/06/5d0c72cca0e366.73148287-768x1133.jpg" width="550" height="250"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
@@ -275,10 +300,13 @@
                  </div>
              </div>
             </div>
-            
+                
         </div>
         </div>
         </div>
+    
+        </div>
+    </div>
     </div>
          
         
