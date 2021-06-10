@@ -7,7 +7,7 @@ bokeh==0.12.16
 Click==7.0
 cycler==0.10.0
 decorator==4.3.0
-Django==2.1.8
+Django==2.2.24
 flake8==3.5.0
 Flask==1.0.2
 gast==0.2.0
